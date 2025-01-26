@@ -1,69 +1,34 @@
-import { useEffect, useState, useCallback } from "react";
-import { Menu, Drawer, Button } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
-import { useLocation } from "react-router-dom";
-import { useIsMobile } from "../hooks/useIsMobile";
-import "../styles/_navigation.scss";
+import { useState } from "react";
+import { useDeviceType } from "../hooks/useDevice";
+import DesktopMenu from "../styledComponents/components/Navigation/DesktopMenu";
+import MobileMenu from "../styledComponents/components/Navigation/MobileMenu";
+import { StyledNavigation } from "../styledComponents/components/Navigation/StyledNavigation";
 
 export const Navigation = () => {
-  const isMobile = useIsMobile(768);
+  const deviceType = useDeviceType();
   const [open, setOpen] = useState(false);
-  const [selectedKey, setSelectedKey] = useState<string>("");
-  const location = useLocation();
-
-  useEffect(() => {
-    setSelectedKey(location.pathname);
-  }, [location.pathname]);
-
-  const toggleDrawer = useCallback(() => setOpen((prev) => !prev), []);
 
   const menuItems = [
     { label: "ABOUT ME", key: "about", href: "/" },
-    { label: "MY PROJECTS", key: "projects", href: "/projects" },
+    // { label: "MY PROJECTS", key: "projects", href: "/projects" },
     { label: "CONTACT", key: "contact", href: "/contact" },
   ];
 
+  const toggleDrawer = () => setOpen((prev) => !prev);
+
   return (
-    <header className="navigation">
-      <div className="navigation-header">
-        <h1>ALINDE ÖST</h1>
-        {isMobile && (
-          <Button
-            icon={<MenuOutlined />}
-            onClick={toggleDrawer}
-            className="mobile-menu-button"
-          />
-        )}
-      </div>
-      {isMobile ? (
-        <Drawer
-          placement="right"
-          open={open}
-          onClose={toggleDrawer}
-          style={{ display: "flex", justifyContent: "flex-end" }} // Aligns menu to the right
-          className="custom-mobile-drawer" // Custom class for additional styles if needed
-        >
-          <Menu
-            mode="inline"
-            selectedKeys={[selectedKey]}
-            onClick={(e) => setSelectedKey(e.key)}
-            items={menuItems.map((item) => ({
-              key: item.key,
-              label: <a href={item.href}>{item.label}</a>,
-            }))}
-          />
-        </Drawer>
+    <StyledNavigation>
+      {deviceType === "mobile" || deviceType === "tablet" ? (
+        <MobileMenu
+          menuItems={menuItems}
+          isOpen={open}
+          onToggle={toggleDrawer}
+        />
       ) : (
-        <nav>
-          <ul>
-            {menuItems.map((item) => (
-              <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <DesktopMenu menuItems={menuItems} />
       )}
-    </header>
+    </StyledNavigation>
   );
 };
+
+export default Navigation;

@@ -1,13 +1,15 @@
-
-import { Projects } from "./Projects";
+import styled from "styled-components";
+import { useDeviceType } from "../hooks/useDevice";
+import { Projects } from "../components/Projects";
 
 const Main = () => {
+  const isMobile = useDeviceType();
+
   return (
     <>
-      <div className="container">
-        <div className="left-column">
+      <Container>
+        <LeftColumn>
           <h1>Hi. My name is Alinde.</h1>
-
           <p>
             I’m a full-stack developer with experience in React, React Native,
             TypeScript, Node.js, Firebase, and API integrations. I love
@@ -29,70 +31,141 @@ const Main = () => {
           </p>
           <h4>
             If you have any questions or want to get in touch with me, email:{" "}
-            <br />
-            {""}
+            <br />{" "}
             <a href={"mailto:ost.alinde@gmail.com"}>ost.alinde@gmail.com</a>
           </h4>
-        </div>
+        </LeftColumn>
 
-        <div className="right-column">
-          <h2 id="my-projects">Projects</h2>
-          <ul>
-            <li>
-              <a href="#">HittaVet - Examensarbete</a>
-            </li>
-            <li>
-              <a href="#">Weather App(Using weatherbit API)</a>
-            </li>
-            <li>
-              <a href="#">E-commerce with stripe</a>
-            </li>
-            <li>
-              <a href="#">Subscription Newsletter App</a>
-            </li>
-            <li>
-              <a href="#">Image Search(Using Google Image Api)</a>
-            </li>
-          </ul>
-          {/* <div className="tech-container">
-            <h2 id="my-techstack">Tech-stack</h2>
-            <div className="tech-stack">
-              <h3>JavaScript</h3>
-              <h3>React</h3>
-              <h3>TypeScript</h3>
-              <h3>HTML</h3>
-              <h3>CSS</h3>
-            </div>
-            <div className="tech-stack">
-              <h3>Node.js</h3>
-              <h3>Express.js</h3>
-              <h4>PHP</h4>
-              <h4>WordPress</h4>
-              <h4>Git/Github</h4>
-            </div>
-            <div className="tech-stack">
-              <h4>MySQL</h4>
-              <h4>MongoDB</h4>
-            </div>
-          </div> */}
-        </div>
-      </div>
-      <div className="pictures">
-        <img
-          className="me"
-          src="/src/images/russin.jpg"
-          alt="picture of me and Russin"
-        />
-        <img
-          className="me"
+        {isMobile ? (
+          <RightColumn>
+            <h2 id="my-projects">Projects</h2>
+            <ul>
+              <li>
+                <a href="#">HittaVet - Examensarbete</a>
+              </li>
+              <li>
+                <a href="#">Weather App (Using Weatherbit API)</a>
+              </li>
+              <li>
+                <a href="#">E-commerce with Stripe</a>
+              </li>
+              <li>
+                <a href="#">Subscription Newsletter App</a>
+              </li>
+              <li>
+                <a href="#">Image Search (Using Google Image API)</a>
+              </li>
+            </ul>
+          </RightColumn>
+        ) : (
+          <RightColumn>
+            <h2 id="my-projects">Projects</h2>
+            <ul>
+              <li>
+                <a href="#">HittaVet - Examensarbete</a>
+              </li>
+              <li>
+                <a href="#">Weather App (Using Weatherbit API)</a>
+              </li>
+              <li>
+                <a href="#">E-commerce with Stripe</a>
+              </li>
+              <li>
+                <a href="#">Subscription Newsletter App</a>
+              </li>
+              <li>
+                <a href="#">Image Search (Using Google Image API)</a>
+              </li>
+            </ul>
+          </RightColumn>
+        )}
+      </Container>
+      <Projects/>
+      <Pictures>
+        <MeImage src="/src/images/russin.jpg" alt="picture of me and Russin" />
+        <MeImage
           src="/src/images/alinderussin.png"
           alt="picture of me and Russin"
         />
-      </div>
+      </Pictures>
       <i>Me and my dog Russin.</i>
       <br /> <br /> <br />
     </>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+`;
+
+const LeftColumn = styled.div`
+  margin: 20px;
+  height: auto;
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 300px;
+  max-width: 50%;
+
+  h1 {
+    font-family: "Playfair Display", serif;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  a {
+    color: black;
+  }
+
+  h4 {
+    font-family: "Playfair Display", serif;
+  }
+`;
+
+const RightColumn = styled.div`
+  margin: 20px;
+  height: auto;
+  box-sizing: border-box;
+  flex: 1;
+  width: 40%;
+  min-width: 300px;
+  max-width: 50%;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    position: relative;
+  }
+`;
+
+const Pictures = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center;
+
+  img {
+    border-radius: 20px;
+  }
+`;
+
+const MeImage = styled.img`
+  width: 450px;
+  max-width: 100%;
+  height: auto;
+  margin: 10px;
+`;
 
 export default Main;
