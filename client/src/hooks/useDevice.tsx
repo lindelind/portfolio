@@ -1,5 +1,7 @@
 // import { useState, useEffect } from "react";
 
+import { useState, useEffect } from "react";
+
 // export const useIsMobile = (breakpoint: number = 768) => {
 //   const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
 
@@ -11,8 +13,6 @@
 
 //   return isMobile;
 // };
-
-import { useState, useEffect } from "react";
 
 // Definiera breakpoints
 const breakpoints = {
@@ -37,11 +37,10 @@ export const useDeviceType = () => {
     };
   }, []);
 
-  // Funktion som returnerar en enhetstyp baserat på bredden
   function getDeviceType(width: number): string {
     if (width <= breakpoints.mobile) return "mobile";
     if (width <= breakpoints.tablet) return "tablet";
-    if (width <= breakpoints.laptop) return "laptop";
+    if (width <= breakpoints.laptop) return "laptop";  // Laptop + smaller = single column
     return "desktop";
   }
 

@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { useDeviceType } from "../hooks/useDevice";
+import {ProjectsList} from "../components/ProjectsList";
 import { Projects } from "../components/Projects";
+import { TechStack } from "../components/TechStack";
+
 
 const Main = () => {
-  const isMobile = useDeviceType();
+  const deviceType = useDeviceType();
 
   return (
     <>
@@ -20,14 +23,6 @@ const Main = () => {
             For me, clear code structure and a user-friendly experience go hand
             in hand—whether it’s ensuring the app is easy to use or making the
             code straightforward to navigate.
-            <br />
-            <br />
-            During my education and internship, I’ve learned so much about
-            development and teamwork. My background in customer service has also
-            given me valuable insights into user needs, which I bring into every
-            project. Creating solutions that are practical, clear, and enjoyable
-            to use is what drives me. Now, I’m excited to bring everything I’ve
-            learned into the workforce and continue growing as a developer!
           </p>
           <h4>
             If you have any questions or want to get in touch with me, email:{" "}
@@ -36,72 +31,63 @@ const Main = () => {
           </h4>
         </LeftColumn>
 
-        {isMobile ? (
+        {deviceType === "desktop" ? (
           <RightColumn>
-            <h2 id="my-projects">Projects</h2>
-            <ul>
-              <li>
-                <a href="#">HittaVet - Examensarbete</a>
-              </li>
-              <li>
-                <a href="#">Weather App (Using Weatherbit API)</a>
-              </li>
-              <li>
-                <a href="#">E-commerce with Stripe</a>
-              </li>
-              <li>
-                <a href="#">Subscription Newsletter App</a>
-              </li>
-              <li>
-                <a href="#">Image Search (Using Google Image API)</a>
-              </li>
-            </ul>
+            <Pictures>
+                <MeImage
+                  src="src/images/bebis.jpg"
+                  alt="Rotating image of a baby"
+                />
+            </Pictures>
           </RightColumn>
         ) : (
-          <RightColumn>
+          <SingleColumn>
             <h2 id="my-projects">Projects</h2>
-            <ul>
-              <li>
-                <a href="#">HittaVet - Examensarbete</a>
-              </li>
-              <li>
-                <a href="#">Weather App (Using Weatherbit API)</a>
-              </li>
-              <li>
-                <a href="#">E-commerce with Stripe</a>
-              </li>
-              <li>
-                <a href="#">Subscription Newsletter App</a>
-              </li>
-              <li>
-                <a href="#">Image Search (Using Google Image API)</a>
-              </li>
-            </ul>
-          </RightColumn>
+            <ProjectsList deviceType={deviceType} />
+          </SingleColumn>
         )}
       </Container>
-      <Projects/>
-      <Pictures>
+      <TechStack/>
+      <h1>Projects I have done</h1>
+      <Projects />
+      {/* <Pictures>
         <MeImage src="/src/images/russin.jpg" alt="picture of me and Russin" />
         <MeImage
           src="/src/images/alinderussin.png"
           alt="picture of me and Russin"
         />
-      </Pictures>
-      <i>Me and my dog Russin.</i>
-      <br /> <br /> <br />
+      </Pictures> */}
+      {/* <i>Me and my dog Russin.</i> */}
     </>
   );
 };
 
-const Container = styled.div`
+const SingleColumn = styled.div`
+  width: 100%;
+  margin-top: 20px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    position: relative;
+  }
+`;
+
+export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
 `;
 
-const LeftColumn = styled.div`
+export const LeftColumn = styled.div`
   margin: 20px;
   height: auto;
   box-sizing: border-box;
@@ -126,7 +112,7 @@ const LeftColumn = styled.div`
   }
 `;
 
-const RightColumn = styled.div`
+export const RightColumn = styled.div`
   margin: 20px;
   height: auto;
   box-sizing: border-box;
@@ -150,22 +136,23 @@ const RightColumn = styled.div`
   }
 `;
 
-const Pictures = styled.div`
+export const Pictures = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
   justify-content: center;
 
   img {
-    border-radius: 20px;
+    border-radius: 200px;
   }
 `;
 
-const MeImage = styled.img`
+export const MeImage = styled.img`
   width: 450px;
   max-width: 100%;
   height: auto;
   margin: 10px;
 `;
+
 
 export default Main;

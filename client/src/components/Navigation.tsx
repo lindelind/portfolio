@@ -9,7 +9,8 @@ export const Navigation = () => {
   const [open, setOpen] = useState(false);
 
   const menuItems = [
-    { label: "ABOUT ME", key: "about", href: "/" },
+    { label: "HOME", key: "home", href: "/" },
+    { label: "ABOUT ME", key: "about", href: "/about-me" },
     // { label: "MY PROJECTS", key: "projects", href: "/projects" },
     { label: "CONTACT", key: "contact", href: "/contact" },
   ];
