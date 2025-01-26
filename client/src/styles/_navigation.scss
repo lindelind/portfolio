@@ -1,8 +1,11 @@
+
+
+
 .navigation {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
+  // padding: 10px;
   background-color: #363635;
   position: fixed; 
   top: 0;
@@ -12,7 +15,9 @@
  
 
   h1 {
-    font-size: 24px;
+    font-family: 'poppins';
+    margin-top: 50px;
+    font-size: 20px;
     color: white;
   }
 
@@ -30,6 +35,7 @@
       a {
         text-decoration: none;
         color: white;
+        
 
 
         &:hover {
@@ -38,4 +44,18 @@
       }
     }
   }
+}
+
+.mobile-menu-button {
+  background: transparent;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 30px;
+}
+
+.navigation-header {
+  text-align: center;
 }

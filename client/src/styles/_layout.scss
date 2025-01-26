@@ -1,7 +1,7 @@
 
 
 #root {
-  text-align: center;
+  
   
 }
 
@@ -9,16 +9,18 @@ body, html {
 
   margin: 0;
   padding: 0;
+  
 }
 
 header {
   width: 100%;
-  min-height: 20vh;
+  height: 15vh;
 }
 
 main {
   width: 100%;
   min-height: 50vh;
+  text-align: center;
 }
 
 footer {
@@ -26,4 +28,6 @@ footer {
   width: 100%;
   min-height: 20vh;
   background-color: #363635;
+  opacity: 0.9;
+  text-align: center;
 }
