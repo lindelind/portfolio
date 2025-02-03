@@ -3,14 +3,30 @@ import styled from "styled-components";
 export const PrimaryButton = styled.button`
   background-color:rgb(164, 141, 222);
   color: white;
+  
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
 
   &:hover {
     background-color:rgb(147, 45, 202);
+  }
+`;
+
+export const CustomButton = styled.button`
+  background-color: rgb(164, 141, 222);
+  color: white;
+
+  padding: 20px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(147, 45, 202);
   }
 `;
 

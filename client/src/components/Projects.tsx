@@ -2,43 +2,38 @@ import { ProjectBanner } from "../styledComponents/ProjectBanner";
 import { Description } from "../styledComponents/Description";
 import { Tags } from "../styledComponents/Tags";
 import { Title } from "../styledComponents/Title";
-import hittavetImage from "../images/hittavet-pic.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useDeviceType } from "../hooks/useDevice";
+import { PrimaryButton, SecondaryButton } from "../styledComponents/Button";
 
 const projects = [
   {
-    image: hittavetImage,
-    title: "HittaVet",
+    image: "/images/matrix.png",
+    title: "Matrix",
     tags: ["React", "Node", "Firebase"],
-    description: "ExamensArbete Medieinstitutet ...",
+    description: "Kontakt bok med Matrix-tema",
   },
   {
-    image: hittavetImage,
-    title: "HittaVet",
+    image: "/images/vädret.png",
+    title: "Vädret.Nu",
     tags: ["React", "Node", "Firebase"],
-    description: "ExamensArbete Medieinstitutet ...",
+    description:
+      "Uppgift i frontendkursen där vi använde oss av ett externt api.",
   },
   {
-    image: hittavetImage,
+    image: "/images/hittavet-pic.png",
     title: "HittaVet",
     tags: ["React", "Node", "Firebase"],
-    description: "ExamensArbete Medieinstitutet ...",
+    description: "ExamensArbete Medieinstitutet",
   },
   {
-    image: hittavetImage,
+    image: "/images/hittavet-pic.png",
     title: "HittaVet",
     tags: ["React", "Node", "Firebase"],
-    description: "ExamensArbete Medieinstitutet ...",
-  },
-  {
-    image: "",
-    title: "Project 2",
-    tags: ["JavaScript", "React", "Firebase"],
-    description: "Beskrivning av projekt 2",
+    description: "ExamensArbete Medieinstitutet",
   },
 ];
 
@@ -46,9 +41,14 @@ export const Projects = () => {
   const deviceType = useDeviceType();
 
   const swiperConfig = {
-    spaceBetween: 0,
+    spaceBetween: 8,
+    centeredSlides: true,
+  
+    
+
     loop: true,
     navigation: true,
+
     slidesPerView:
       deviceType === "mobile" || deviceType === "tablet"
         ? 1
@@ -59,16 +59,22 @@ export const Projects = () => {
   };
 
   return (
-    <Swiper {...swiperConfig}>
-      {projects.map((project, index) => (
-        <SwiperSlide key={`key-${project.title}-${index}`}>
-          <ProjectBanner $image={project.image}>
-            <Title title={project.title} />
-            <Tags tags={project.tags} />
-            <Description description={project.description} />
-          </ProjectBanner>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <> 
+      <Swiper {...swiperConfig}>
+        {projects.map((project, index) => (
+          <SwiperSlide key={`key-${project.title}-${index}`}>
+              <ProjectBanner $image={project.image}>
+                <Title title={project.title} />
+                <Tags tags={project.tags} />
+                <Description description={project.description} />
+                <br />
+                <PrimaryButton>Github</PrimaryButton>
+                <br />
+                <SecondaryButton>Live</SecondaryButton>
+              </ProjectBanner>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 };

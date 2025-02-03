@@ -8,6 +8,9 @@ const StyledTag = styled.div`
     font-size: 1rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 5px;
+    border-radius: 5px;
   }
 `;
 

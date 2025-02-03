@@ -12,7 +12,8 @@ const rotate = keyframes`
 
 export const Rotate = styled.div`
   display: inline-block;
-  animation: ${rotate} 5s linear infinite;
+  animation: ${rotate} 10s linear infinite;
   padding: 2rem 1rem;
   font-size: 1.2rem;
+  
 `;

@@ -1,9 +1,8 @@
-
-import { useState, useEffect } from "react";
 import { Menu, Drawer, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 
 export interface MenuItem {
@@ -13,18 +12,24 @@ export interface MenuItem {
 }
 
 interface MobileMenuProps {
-  menuItems: MenuItem[];
+  menuItems: { label: string; key: string; href: string }[];
   isOpen: boolean;
   onToggle: () => void;
+  onNavigate: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
 }
 
-export const MobileMenu = ({ menuItems, isOpen, onToggle }: MobileMenuProps) => {
-  const [selectedKey, setSelectedKey] = useState<string>("");
+export const MobileMenu = ({
+  menuItems,
+  isOpen,
+  onToggle,
+  onNavigate,
+}: MobileMenuProps) => {
   const location = useLocation();
+  const [selectedKey, setSelectedKey] = useState<string>("");
 
   useEffect(() => {
-    setSelectedKey(location.pathname);
-  }, [location.pathname]);
+    setSelectedKey(location.pathname + location.hash);
+  }, [location.pathname, location.hash]);
 
   return (
     <>
@@ -38,10 +43,16 @@ export const MobileMenu = ({ menuItems, isOpen, onToggle }: MobileMenuProps) => 
         <Menu
           mode="inline"
           selectedKeys={[selectedKey]}
-          onClick={(e) => setSelectedKey(e.key)}
           items={menuItems.map((item) => ({
             key: item.key,
-            label: <a href={item.href}>{item.label}</a>,
+            label: (
+              <a
+                href={item.href}
+                onClick={(e) => onNavigate(e, item.href)}
+              >
+                {item.label}
+              </a>
+            ),
           }))}
         />
       </StyledDrawer>
@@ -54,7 +65,7 @@ const MobileMenuButton = styled(Button)`
   border: none;
   color: white;
   position: absolute;
-  top: 15px; 
+  top: 15px;
   right: 35px;
   font-size: 30px;
 `;

@@ -1,68 +1,133 @@
 import styled from "styled-components";
 import { useDeviceType } from "../hooks/useDevice";
-import {ProjectsList} from "../components/ProjectsList";
 import { Projects } from "../components/Projects";
-import { TechStack } from "../components/TechStack";
+import { useEffect } from "react";
+import { useLocation} from "react-router-dom";
+import { CustomButton} from "../styledComponents/Button";
+import { Icons } from "../components/Icons";
+import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
+
 
 
 const Main = () => {
   const deviceType = useDeviceType();
+  const location = useLocation();
+
+   useEffect(() => {
+    if (location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      const target = document.getElementById(sectionId);
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth",});
+      }
+    }
+  }, [location.state]);
 
   return (
     <>
       <Container>
         <LeftColumn>
           <h1>Hi. My name is Alinde.</h1>
-          <p>
-            I’m a full-stack developer with experience in React, React Native,
-            TypeScript, Node.js, Firebase, and API integrations. I love
-            combining creativity with problem-solving to build solutions that
-            not only work seamlessly but also look great.
-            <br />
-            <br />
-            For me, clear code structure and a user-friendly experience go hand
-            in hand—whether it’s ensuring the app is easy to use or making the
-            code straightforward to navigate.
-          </p>
-          <h4>
-            If you have any questions or want to get in touch with me, email:{" "}
-            <br />{" "}
-            <a href={"mailto:ost.alinde@gmail.com"}>ost.alinde@gmail.com</a>
-          </h4>
+          <h3>I'm a Fullstack Developer</h3>
+
+          <CustomButton>
+            <a href={"mailto:ost.alinde@gmail.com"}>Contact me</a>
+          </CustomButton>
         </LeftColumn>
 
+        <RightColumn>
+          <Pictures>
+            <MeImage src="/images/me.png" alt="" />
+          </Pictures>
+        </RightColumn>
+
         {deviceType === "desktop" ? (
-          <RightColumn>
-            <Pictures>
-                <MeImage
-                  src="src/images/bebis.jpg"
-                  alt="Rotating image of a baby"
-                />
-            </Pictures>
-          </RightColumn>
+          <Container>
+            <LeftColumn>
+              <section id="about-me"></section>
+              <br />
+              <h1>Who am I?</h1>
+              <p>
+                I’m a full-stack developer with experience in React, React
+                Native, TypeScript, Node.js, Firebase, and API integrations. I
+                love combining creativity with problem-solving to build
+                solutions that not only work seamlessly but also look great.
+                <br />
+                <br />
+                For me, clear code structure and a user-friendly experience go
+                hand in hand—whether it’s ensuring the app is easy to use or
+                making the code straightforward to navigate.
+                <br />
+                <br />
+                During my education and internship, I’ve learned so much about
+                development and teamwork. My background in customer service has
+                also given me valuable insights into user needs, which I bring
+                into every project. Creating solutions that are practical,
+                clear, and enjoyable to use is what drives me. Now, I’m excited
+                to bring everything I’ve learned into the workforce and continue
+                growing as a developer!
+              </p>
+            </LeftColumn>
+
+            <RightColumn>
+              <br />
+              <section id="techstack">
+                <DragAndDropIcons />
+              </section>
+            </RightColumn>
+          </Container>
         ) : (
-          <SingleColumn>
-            <h2 id="my-projects">Projects</h2>
-            <ProjectsList deviceType={deviceType} />
-          </SingleColumn>
+          <>
+            <Container>
+              <LeftColumn>
+                <section id="about-me"></section>
+                <h1>Who am I?</h1>
+                <p>
+                  I’m a full-stack developer with experience in React, React
+                  Native, TypeScript, Node.js, Firebase, and API integrations. I
+                  love combining creativity with problem-solving to build
+                  solutions that not only work seamlessly but also look great.
+                  <br />
+                  <br />
+                  For me, clear code structure and a user-friendly experience go
+                  hand in hand—whether it’s ensuring the app is easy to use or
+                  making the code straightforward to navigate.
+                  <br />
+                  <br />
+                  During my education and internship, I’ve learned so much about
+                  development and teamwork. My background in customer service
+                  has also given me valuable insights into user needs, which I
+                  bring into every project. Creating solutions that are
+                  practical, clear, and enjoyable to use is what drives me. Now,
+                  I’m excited to bring everything I’ve learned into the
+                  workforce and continue growing as a developer!
+                </p>
+              </LeftColumn>
+              <SingleColumn>
+                <section id="techstack">
+                  <h1>TechStack</h1>
+                  <Icons />
+                </section>
+              </SingleColumn>
+            </Container>
+          </>
         )}
       </Container>
-      <TechStack/>
-      <h1>Projects I have done</h1>
-      <Projects />
-      {/* <Pictures>
-        <MeImage src="/src/images/russin.jpg" alt="picture of me and Russin" />
-        <MeImage
-          src="/src/images/alinderussin.png"
-          alt="picture of me and Russin"
-        />
-      </Pictures> */}
-      {/* <i>Me and my dog Russin.</i> */}
+
+      <section id="projects">
+        <h1>My Projects</h1>
+        <Projects />
+      </section>
+      <section id="contact">
+        <h1>Contact me</h1>
+        fjskfjsk
+      </section>
     </>
   );
 };
 
-const SingleColumn = styled.div`
+export const SingleColumn = styled.div`
   width: 100%;
   margin-top: 20px;
   ul {
@@ -83,11 +148,12 @@ const SingleColumn = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  // align-items: flex-start;
   justify-content: center;
 `;
 
 export const LeftColumn = styled.div`
+  margin-top: 50px;
   margin: 20px;
   height: auto;
   box-sizing: border-box;
@@ -110,6 +176,11 @@ export const LeftColumn = styled.div`
   h4 {
     font-family: "Playfair Display", serif;
   }
+
+  h3 {
+  font-family: monospace;
+  font-size: 40px;
+  }
 `;
 
 export const RightColumn = styled.div`
@@ -120,6 +191,7 @@ export const RightColumn = styled.div`
   width: 40%;
   min-width: 300px;
   max-width: 50%;
+
 
   ul {
     list-style-type: none;
@@ -143,15 +215,23 @@ export const Pictures = styled.div`
   justify-content: center;
 
   img {
-    border-radius: 200px;
+    border-radius: 170px;
   }
 `;
 
+ export const ImageWrapper = styled.div`
+  position: relative;
+  width: 350px;
+  height: 350px;
+  margin: 10px;
+`;
+
 export const MeImage = styled.img`
-  width: 450px;
+  width: 370px;
   max-width: 100%;
   height: auto;
   margin: 10px;
+ 
 `;
 
 

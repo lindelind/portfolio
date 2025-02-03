@@ -1,25 +1,10 @@
-// import { useState, useEffect } from "react";
-
 import { useState, useEffect } from "react";
 
-// export const useIsMobile = (breakpoint: number = 768) => {
-//   const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
-
-//   useEffect(() => {
-//     const handleResize = () => setIsMobile(window.innerWidth <= breakpoint);
-//     window.addEventListener("resize", handleResize);
-//     return () => window.removeEventListener("resize", handleResize);
-//   }, [breakpoint]);
-
-//   return isMobile;
-// };
-
-// Definiera breakpoints
 const breakpoints = {
   mobile: 480,
   tablet: 768,
-  laptop: 1024,
-  desktop: 1200,
+  laptop: 1400,
+  desktop: 1400,
 };
 
 export const useDeviceType = () => {
@@ -40,7 +25,7 @@ export const useDeviceType = () => {
   function getDeviceType(width: number): string {
     if (width <= breakpoints.mobile) return "mobile";
     if (width <= breakpoints.tablet) return "tablet";
-    if (width <= breakpoints.laptop) return "laptop";  // Laptop + smaller = single column
+    if (width <= breakpoints.laptop) return "laptop";
     return "desktop";
   }
 

@@ -1,14 +1,15 @@
-import { ProjectsList } from "../components/ProjectsList";
-import { useDeviceType } from "../hooks/useDevice";
-import { Container, LeftColumn, RightColumn } from "./Start";
+
+// import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
+// import { Container, LeftColumn, MeImage, Pictures, RightColumn } from "./Start";
 
 export const AboutMe = () => {
-  const deviceType = useDeviceType();
 
   return (
     <>
-      <Container>
+      {/* <Container> */}
+        {/* <DragAndDropIcons />
         <LeftColumn>
+          <br />
           <h1>Who am I?</h1>
           <p>
             I’m a full-stack developer with experience in React, React Native,
@@ -29,13 +30,13 @@ export const AboutMe = () => {
             to use is what drives me. Now, I’m excited to bring everything I’ve
             learned into the workforce and continue growing as a developer!
           </p>
-        </LeftColumn>
-
-        <RightColumn>
-          <h2 id="my-projects">Projects</h2>
-          <ProjectsList deviceType={deviceType} />
-        </RightColumn>
-      </Container>
+        </LeftColumn> */}
+        {/* <RightColumn>
+          <Pictures>
+            <MeImage src="src/images/me.png" alt="Picture of me" />
+          </Pictures>
+        </RightColumn> */}
+      {/* </Container> */}
     </>
   );
 };

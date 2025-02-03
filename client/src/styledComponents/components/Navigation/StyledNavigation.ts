@@ -1,18 +1,19 @@
 import { styled } from "styled-components";
+// #363635; 
 
 export const StyledNavigation = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #363635;
+  background-color:rgb(0, 0, 0);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  opacity: 0.9;
+  opacity: 0.8;
   text-align: center;
   width: 100%;
-  height: inherit;
+  height: 8vh;
 
   h1 {
     font-family: "Poppins", sans-serif;
