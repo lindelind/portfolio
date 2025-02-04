@@ -13,7 +13,7 @@ export const Navigation = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { label: "HOME", key: "home", href: "/" },
+    { label: "HOME", key: "home", href: "/#home" },
     { label: "ABOUT ME", key: "about", href: "/#about-me" },
     { label: "TECH STACK", key: "contact", href: "/#techstack" },
     { label: "MY PROJECTS", key: "projects", href: "/#projects" },

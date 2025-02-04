@@ -4,17 +4,6 @@ export interface ProjectBannerProps {
   $image: string;
   children: React.ReactNode;
 }
-const BannersGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px 0;
-  width: 100%;
-
-  
-`;
 
 const StyledContainer = styled.div<ProjectBannerProps>`
   height: 350px;
@@ -48,10 +37,3 @@ export const ProjectBanner = (props: ProjectBannerProps) => {
   );
 };
 
-export const ProjectBannerGrid = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  return <BannersGrid>{children}</BannersGrid>;
-};

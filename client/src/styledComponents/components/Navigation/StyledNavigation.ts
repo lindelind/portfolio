@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-// #363635; 
+
 
 export const StyledNavigation = styled.header`
   display: flex;

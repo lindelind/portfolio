@@ -41,8 +41,8 @@ export const Projects = () => {
   const deviceType = useDeviceType();
 
   const swiperConfig = {
-    spaceBetween: 8,
-    centeredSlides: true,
+    spaceBetween: 5,
+    
   
     
 
@@ -54,7 +54,7 @@ export const Projects = () => {
         ? 1
         : deviceType === "laptop"
           ? 2
-          : 3,
+          : 2,
     modules: [Navigation],
   };
 
