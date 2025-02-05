@@ -1,123 +1,15 @@
-// import { DndContext, useDraggable } from "@dnd-kit/core";
-// import { useState } from "react";
-// import { styled } from "styled-components";
 
 
-// const DraggableIcon = styled.div`
-
-//   position: absolute;
-//   width: 90px;
-//   height: 90px;
-//   cursor: grab;
-//   display: flex;
-//   justify-content: center;
-
-//   &:hover {
-//     transform: scale(1.1);
-//   }
-
-//   img {
-//     width: 100%;
-//     height: 100%;
-//   }
-// `;
-
-// const icons = [
-//   { id: "react", src: "/images/react.svg", alt: "React Logo" },
-//   { id: "firebase", src: "/images/firebase.svg", alt: "Firebase Logo" },
-//   { id: "node", src: "/images/node.svg", alt: "Node.js Logo" },
-//   { id: "typescript", src: "/images/ts.svg", alt: "TypeScript Logo" },
-//   { id: "javascript", src: "/images/js.svg", alt: "JavaScript Logo" },
-//   { id: "sql", src: "/images/sql.svg", alt: "SQL Logo" },
-//   { id: "css", src: "/images/css.svg", alt: "CSS Logo" },
-//   { id: "html", src: "/images/html.svg", alt: "HTML Logo" },
-//   { id: "sass", src: "/images/sass1.svg", alt: "SASS Logo" },
-// ];
-
-
-// const defaultPositions: Record<string, { x: number; y: number }> = {
-//   react: { x: 70, y: 150 },
-//   firebase: { x: 170, y: 150 },
-//   node: { x: 270, y: 150 },
-//   typescript: { x: 370, y: 150 },
-//   javascript: { x: 70, y: 250 },
-//   sql: { x: 170, y: 250 },
-//   css: { x: 270, y: 250 },
-//   html: { x: 370, y: 250 },
-//   sass: { x: 470, y: 250 },
-// };
-
-// interface DraggableProps {
-//   id: string;
-//   x: number;
-//   y: number;
-//   src: string;
-//   alt: string;
-// }
-
-// const Draggable = ({ id, x, y, src, alt }: DraggableProps) => {
-//   const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
-
-//   return (
-    
-//       <DraggableIcon
-//         ref={setNodeRef}
-//         style={{
-//           transform: `translate(${x + (transform?.x || 0)}px, ${y + (transform?.y || 0)}px)`,
-//         }}
-//         {...listeners}
-//         {...attributes}
-//       >
-//         <img src={src} alt={alt} />
-//       </DraggableIcon>
-    
-//   );
-// };
-
-// export const DragAndDropIcons = () => {
-//   const [positions, setPositions] = useState(defaultPositions);
-
-//   const handleDragEnd = (event: any) => {
-//     const { id } = event.active;
-//     const { x, y } = event.delta;
-
-//     setPositions((prev) => {
-//       const parentRect = { maxWidth: 500, height: 300 }
-//       const iconSize = 70;
-
-//       return {
-//         ...prev,
-//         [id]: {
-//           x: Math.max(0, Math.min(prev[id].x + x, parentRect.maxWidth - iconSize)),
-//           y: Math.max(
-//             0,
-//             Math.min(prev[id].y + y, parentRect.height - iconSize)
-//           ),
-//         },
-//       };
-//     });
-//   };
-
-//   return (
-//     <DndContext onDragEnd={handleDragEnd}>
-//       {icons.map((icon) => (
-//           <Draggable
-//             key={icon.id}
-//             id={icon.id}
-//             x={positions[icon.id].x}
-//             y={positions[icon.id].y}
-//             src={icon.src}
-//             alt={icon.alt}
-//           />
-//       ))}
-//     </DndContext>
-//   );
-// };
-
-import { DndContext, useDraggable } from "@dnd-kit/core";
+import {
+  DndContext,
+  useDraggable,
+  TouchSensor,
+  MouseSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-
 
 const DraggableIcon = styled.div<{ size: number }>`
   position: absolute;
@@ -127,6 +19,7 @@ const DraggableIcon = styled.div<{ size: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: none; 
 
   &:hover {
     transform: scale(1.1);
@@ -184,12 +77,21 @@ export const DragAndDropIcons = () => {
   const [boxSize, setBoxSize] = useState({ width: 500, height: 300 });
   const [iconSize, setIconSize] = useState(90);
 
-  // Recalculate positions when resizing
+
+  const sensors = useSensors(
+    useSensor(MouseSensor),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        distance: 5,
+      },
+    })
+  );
+
   useEffect(() => {
     const updateSize = () => {
       const width = Math.min(500, window.innerWidth * 0.8);
       const height = 300;
-      const size = width / 8; // Dynamic icon size based on box width
+      const size = width / 8;
 
       setBoxSize({ width, height });
       setIconSize(size);
@@ -230,20 +132,18 @@ export const DragAndDropIcons = () => {
   };
 
   return (
-    <DndContext onDragEnd={handleDragEnd}>
-      
-        {icons.map((icon) => (
-          <Draggable
-            key={icon.id}
-            id={icon.id}
-            x={positions[icon.id]?.x || 0}
-            y={positions[icon.id]?.y || 0}
-            size={iconSize}
-            src={icon.src}
-            alt={icon.alt}
-          />
-        ))}
-     
+    <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
+      {icons.map((icon) => (
+        <Draggable
+          key={icon.id}
+          id={icon.id}
+          x={positions[icon.id]?.x || 0}
+          y={positions[icon.id]?.y || 0}
+          size={iconSize}
+          src={icon.src}
+          alt={icon.alt}
+        />
+      ))}
     </DndContext>
   );
 };
