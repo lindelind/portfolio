@@ -12,6 +12,7 @@ import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
 import { MeImage, Pictures } from "../styledComponents/Images"
 import { CustomButton } from "../styledComponents/Button";
 import { Projects } from "../components/Projects";
+import { Contact } from "../components/Contact";
 
 const AboutMe: React.FC = () => {
   return (
@@ -35,16 +36,15 @@ const AboutMe: React.FC = () => {
         </TwoColumnLayout>
 
         <StackedLayout>
-          <TextSection>
-            <section id="about-me"></section>
-            <br />
-            <h1>Who am I?</h1>
-            <p>
+          <LeftColumn>
+            <TextSection>
+              <section id="about-me"></section>
+              <br />
+              <h1>Who am I?</h1>
               I’m a full-stack developer with experience in React, React Native,
               TypeScript, Node.js, Firebase, and API integrations. I love
               combining creativity with problem-solving to build solutions that
               not only work seamlessly but also look great.
-              <br />
               <br />
               For me, clear code structure and a user-friendly experience go
               hand in hand—whether it’s ensuring the app is easy to use or
@@ -58,8 +58,8 @@ const AboutMe: React.FC = () => {
               and enjoyable to use is what drives me. Now, I’m excited to bring
               everything I’ve learned into the workforce and continue growing as
               a developer!
-            </p>
-          </TextSection>
+            </TextSection>
+          </LeftColumn>
           <InteractiveBox>
             <section id="techstack"></section>
             <DragAndDropIcons />
@@ -71,11 +71,9 @@ const AboutMe: React.FC = () => {
         <Projects />
       </section>
       <PageContainer>
-        <TextSection>
-          <section id="contact">
-            <h1>Contact Me</h1>
-          </section>
-        </TextSection>
+        <section id="contact">
+          <Contact />
+        </section>
       </PageContainer>
     </>
   );
