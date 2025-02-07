@@ -8,6 +8,7 @@ export interface ProjectBannerProps {
 const StyledContainer = styled.div<ProjectBannerProps>`
   height: 350px;
   display: flex;
+  border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-image: linear-gradient(90deg, rgb(28, 27, 27) 30%, transparent 70%),
@@ -17,6 +18,7 @@ const StyledContainer = styled.div<ProjectBannerProps>`
   background-position: right;
   width: 100%;
   margin: 10px auto;
+  cursor: pointer;
 
   & > div {
     display: flex;
@@ -25,7 +27,6 @@ const StyledContainer = styled.div<ProjectBannerProps>`
     align-items: flex-start;
     padding-left: 10px;
     margin: 20px;
-    
   }
 `;
 

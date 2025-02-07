@@ -3,7 +3,7 @@ import { Description } from "../styledComponents/Description";
 import { Tags } from "../styledComponents/Tags";
 import { Title } from "../styledComponents/Title";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useDeviceType } from "../hooks/useDevice";
@@ -41,11 +41,12 @@ export const Projects = () => {
   const deviceType = useDeviceType();
 
   const swiperConfig = {
-    spaceBetween: 5,
-    
-  
-    
-
+    spaceBetween: 13,
+    speed: 7000,
+    autoplay: {
+      delay: 150,
+      
+    },
     loop: true,
     navigation: true,
 
@@ -55,7 +56,7 @@ export const Projects = () => {
         : deviceType === "laptop"
           ? 2
           : 2,
-    modules: [Navigation],
+    modules: [Navigation, Autoplay],
   };
 
   return (

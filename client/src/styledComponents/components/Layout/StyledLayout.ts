@@ -73,10 +73,10 @@ export const StackedLayout = styled.div`
 export const TextSection = styled.div`
   flex: 1;
   padding: 20px;
-  margin-right:50px;
+  margin: 20px;
 
   @media (max-width: 768px) {
-  
+   
 }
 `;
 

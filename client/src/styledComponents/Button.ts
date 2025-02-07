@@ -9,6 +9,12 @@ export const PrimaryButton = styled.button`
   border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
+  margin: 5px;
+
+  a {
+  text-decoration: none;
+  color: white;
+  }
 
   &:hover {
     background-color:rgb(147, 45, 202);
@@ -18,16 +24,41 @@ export const PrimaryButton = styled.button`
 export const CustomButton = styled.button`
   background-color: rgb(164, 141, 222);
   color: white;
+      a {
+    text-decoration: none;
+    color: white;
+    }
+
+    &:hover {
+      background-color: rgb(147, 45, 202);
+    }
 
   padding: 20px 30px;
   border: none;
   border-radius: 10px;
   font-size: 25px;
   cursor: pointer;
+  animation: bounce 1s;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(.5, .05, 1, .5);
+            animation-iteration-count: infinite;
+        }
+   
 
-  &:hover {
-    background-color: rgb(147, 45, 202);
-  }
+        @keyframes bounce {
+            from {
+                transform: translate3d(0, 0px, 0);
+            }
+
+            to {
+                transform: translate3d(0, 30px, 0);
+            }
+                
+        }
+
+  
+
+  
 `;
 
 export const SecondaryButton = styled.button`
@@ -38,6 +69,11 @@ export const SecondaryButton = styled.button`
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: rgb(165, 130, 177);
+  }
 
   &:hover {
     background-color: #e6f2ff;
