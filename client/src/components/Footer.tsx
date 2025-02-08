@@ -1,6 +1,7 @@
 
 import { StyledFooter } from "../styledComponents/Footer";
 import { StyledIcon } from "../styledComponents/Icons";
+import { ChangeLanguage } from "./ChangeLanguage";
 
 export const Footer = () => {
   return (
@@ -30,6 +31,7 @@ export const Footer = () => {
           </a>
         </StyledIcon>
       </StyledFooter>
+      <ChangeLanguage />
     </>
   );
 };
