@@ -15,7 +15,7 @@ const StyledContainer = styled.div<ProjectBannerProps>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
-  width: 100%;
+  width: 95%;
   margin: 10px auto;
   cursor: grab;
 
@@ -26,8 +26,10 @@ const StyledContainer = styled.div<ProjectBannerProps>`
     align-items: flex-start;
     padding-left: 10px;
     margin: 20px;
+  
   }
 `;
+
 
 export const ProjectBanner = (props: ProjectBannerProps) => {
   return (
