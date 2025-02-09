@@ -9,23 +9,31 @@ import {
   InteractiveBox,
 } from "../styledComponents/components/Layout/StyledLayout";
 import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
-import { MeImage, Pictures } from "../styledComponents/Images"
+import { MeImage, Pictures } from "../styledComponents/Images";
 import { CustomButton } from "../styledComponents/Button";
 import { Projects } from "../components/Projects";
 import { Contact } from "../components/Contact";
+import { Arrow } from "../components/animations/Arrow";
+import { useDeviceType } from "../hooks/useDevice";
+import { useTranslation } from "react-i18next";
 
 const AboutMe: React.FC = () => {
+  const deviceType = useDeviceType();
+  const { t } = useTranslation();
+
   return (
     <>
       <PageContainer>
-        <section id="home"></section>
+        <section id="home">
+          <br />
+          <br />
+        </section>
         <TwoColumnLayout>
           <LeftColumn>
-            <br />
-            <h1>Hi. My name is Alinde.</h1>
-            <h3>I'm a Fullstack Developer</h3>
+            <h1>{t("home.title")}</h1>
+            <h3>{t("home.subtitle")}</h3>
             <CustomButton>
-              <a href={"mailto:ost.alinde@gmail.com"}>Contact me</a>
+              <a href={"mailto:ost.alinde@gmail.com"}>{t("home.contact")}</a>
             </CustomButton>
           </LeftColumn>
           <RightColumn>
@@ -34,42 +42,70 @@ const AboutMe: React.FC = () => {
             </Pictures>
           </RightColumn>
         </TwoColumnLayout>
-
         <StackedLayout>
           <LeftColumn>
-            <TextSection>
-              <section id="about-me"></section>
-              <br />
-              <h1>Who am I?</h1>
-              I’m a full-stack developer with experience in React, React Native,
-              TypeScript, Node.js, Firebase, and API integrations. I love
-              combining creativity with problem-solving to build solutions that
-              not only work seamlessly but also look great.
-              <br />
-              For me, clear code structure and a user-friendly experience go
-              hand in hand—whether it’s ensuring the app is easy to use or
-              making the code straightforward to navigate.
+            <section id="techstack">
               <br />
               <br />
-              During my education and internship, I’ve learned so much about
-              development and teamwork. My background in customer service has
-              also given me valuable insights into user needs, which I bring
-              into every project. Creating solutions that are practical, clear,
-              and enjoyable to use is what drives me. Now, I’m excited to bring
-              everything I’ve learned into the workforce and continue growing as
-              a developer!
-            </TextSection>
+              <TextSection>
+                {deviceType === "desktop" && <Arrow />}
+                <h2>{t("techstack.heading")}</h2>
+                <p>{t("techstack.description")}</p>
+              </TextSection>
+            </section>
           </LeftColumn>
-          <InteractiveBox>
-            <section id="techstack"></section>
-            <DragAndDropIcons />
-          </InteractiveBox>
         </StackedLayout>
+
+        {deviceType != "desktop" ? (
+          <>
+            <InteractiveBox>
+              <DragAndDropIcons />
+            </InteractiveBox>
+            <StackedLayout>
+              <LeftColumn>
+                <TextSection>
+                  <section id="about-me">
+                    <br />
+                    <br />
+                  </section>
+                  <h1>{t("aboutMe.heading")}</h1>
+                  <p>{t("aboutMe.paragraph1")}</p>
+                  <p>{t("aboutMe.paragraph2")}</p>
+                  <p>{t("aboutMe.paragraph3")}</p>
+                </TextSection>
+              </LeftColumn>
+            </StackedLayout>
+          </>
+        ) : (
+          <StackedLayout>
+            <LeftColumn>
+              <TextSection>
+                <section id="about-me">
+                  <br />
+                  <br />
+                </section>
+                <h1>{t("aboutMe.heading")}</h1>
+                <p>{t("aboutMe.paragraph1")}</p>
+                <p>{t("aboutMe.paragraph2")}</p>
+                <p>{t("aboutMe.paragraph3")}</p>
+              </TextSection>
+            </LeftColumn>
+            <InteractiveBox>
+              <DragAndDropIcons />
+            </InteractiveBox>
+          </StackedLayout>
+        )}
       </PageContainer>
+
       <section id="projects">
-        <h1>My Projects</h1>
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1>{t("projects.heading")}</h1>
         <Projects />
       </section>
+
       <PageContainer>
         <section id="contact">
           <Contact />

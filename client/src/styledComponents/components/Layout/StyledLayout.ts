@@ -63,7 +63,7 @@ export const StackedLayout = styled.div`
   width: 100%;
   margin-top: 40px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
     text-align: center;
   }
@@ -84,14 +84,14 @@ export const TextSection = styled.div`
 export const InteractiveBox = styled.div`
   position: relative;
   width: 500px;
-  height: 300px; /* Justera höjden vid behov */
-  overflow: hidden; /* Förhindrar att ikoner hamnar utanför */
-  border: 1px solid #ccc;
+  height: 300px;
+  overflow: hidden; 
+  border: 7px solid #ccc;
   margin: 0;
   padding: 10px;
   border-radius: 10px;
-
-  @media (max-width: 1000px) {
+  background-color:rgb(4, 4, 4);
+   @media (max-width: 1000px) {
     max-width: 500px;
   }
 

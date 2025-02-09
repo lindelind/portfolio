@@ -16,4 +16,5 @@ export const MeImage = styled.img`
   max-width: 100%;
   height: auto;
   margin: 10px;
+  border-radius: 160px;
 `;

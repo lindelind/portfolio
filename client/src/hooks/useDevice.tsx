@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const breakpoints = {
   mobile: 480,
-  tablet: 768,
-  laptop: 1400,
-  desktop: 1400,
+  tablet: 768, 
+  laptop: 1199,
+  desktop: 1200,
 };
+
 
 export const useDeviceType = () => {
   const [deviceType, setDeviceType] = useState<string>(
@@ -26,7 +27,7 @@ export const useDeviceType = () => {
     if (width <= breakpoints.mobile) return "mobile";
     if (width <= breakpoints.tablet) return "tablet";
     if (width <= breakpoints.laptop) return "laptop";
-    return "desktop";
+    return "desktop"; 
   }
 
   return deviceType;
