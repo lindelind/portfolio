@@ -72,6 +72,7 @@ const AboutMe: React.FC = () => {
                   <p>{t("aboutMe.paragraph1")}</p>
                   <p>{t("aboutMe.paragraph2")}</p>
                   <p>{t("aboutMe.paragraph3")}</p>
+                  <p>{t("aboutMe.paragraph4")}</p>
                 </TextSection>
               </LeftColumn>
             </StackedLayout>
@@ -98,8 +99,6 @@ const AboutMe: React.FC = () => {
       </PageContainer>
 
       <section id="projects">
-        <br />
-        <br />
         <br />
         <br />
         <h1>{t("projects.heading")}</h1>

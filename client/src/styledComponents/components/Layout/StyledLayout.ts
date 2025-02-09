@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: 30px;
   max-width: 1199px;
   margin: 0 auto;
 
@@ -40,7 +40,6 @@ export const LeftColumn = styled.div`
 
   @media (max-width: 1200px) {
     max-width: 80%;
-    margin-bottom: 20px;
   }
   @media (max-width: 1000px) {
     max-width: 100%;
@@ -65,7 +64,6 @@ export const StackedLayout = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 40px;
 
   @media (max-width: 1200px) {
     flex-direction: column;
@@ -77,7 +75,7 @@ export const StackedLayout = styled.div`
 export const TextSection = styled.div`
   flex: 1;
   padding: 20px;
-  margin: 20px;
+  margin: 10px;
 
   @media (max-width: 1200px) {
    

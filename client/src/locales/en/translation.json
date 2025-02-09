@@ -6,14 +6,15 @@
   },
   "techstack": {
     "heading": "Tech Stack",
-    "description": "I use Node.js for backend development, React and React Native for building responsive web and mobile applications, and TypeScript to enhance code quality and maintainability. For real-time data handling and cloud functions, I rely on Firebase and Firestore. Additionally, I work with WordPress for content management and website development."
+    "description": "I have strong experience with React, TypeScript, Node.js, and Firebase to build both web and mobile applications. I use these tools to create responsive interfaces, keep the code clean and efficient, and handle real-time data. I also have experience working with both SQL and NoSQL databases such as MySQL, MongoDB, and Firebase Firestore. In addition, I've worked with Docker for containerization and built websites and plugins with PHP and WordPress. I'm also interested in AI development and have experimented with OpenAI and used the PromptLayer tool. For me, it's both fun and important to explore new tools and languages to have a wider toolbox to choose from when building my projects. That's why I'm currently learning more about C# and .NET."
   },
   "aboutMe": {
-    "heading": "Who am I?",
-    "paragraph1": "I’m a full-stack developer with experience in React, React Native, TypeScript, Node.js, Firebase, and API integrations. I love combining creativity with problem-solving to build solutions that not only work seamlessly but also look great.",
-    "paragraph2": "For me, clear code structure and a user-friendly experience go hand in hand—whether it’s ensuring the app is easy to use or making the code straightforward to navigate.",
-    "paragraph3": "During my education and internship, I’ve learned so much about development and teamwork. My background in customer service has also given me valuable insights into user needs, which I bring into every project. Creating solutions that are practical, clear, and enjoyable to use is what drives me. Now, I’m excited to bring everything I’ve learned into the workforce and continue growing as a developer!"
-  },
+  "heading": "Who am I?",
+  "paragraph1": "I’m a full-stack developer on my way into the workforce, with experience in both frontend and backend development. I love combining creativity with problem-solving to build solutions that work smoothly and look great. For me, clear code structure and a user-friendly experience go hand in hand – whether it’s ensuring the app is easy to use or making the code easy to navigate.",
+  "paragraph2": "During my education and internship, I’ve worked on several projects where I’ve built functional solutions using technologies like React, React Native, TypeScript, Node.js, PHP, Firebase, and SQL/NoSQL databases. I’ve also worked on API integrations and improved user flows in mobile apps. More details can be found under MY PROJECTS.",
+  "paragraph3": "My background in customer service has equipped me with valuable soft skills, like the ability to communicate effectively, listen to and understand user needs, and collaborate well in teams. I’m good at understanding what’s required to create a positive user experience and can quickly adapt to new requirements and challenges.",
+  "paragraph4": "I’m excited to bring both my technical skills and customer service experience to a developer role, where I can contribute to building user-friendly and technically sustainable solutions."
+},
   "projects": {
     "heading": "My Projects",
     "read_more": "Read more"
@@ -27,7 +28,6 @@
     "sendMessage": "Send Message",
     "message_sent": "Message sent!",
     "message_failed": "Message could not be sent. Please try again."
-    
   },
   "menu": {
     "home": "HOME",
