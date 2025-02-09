@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  max-width: 1200px;
+  max-width: 1199px;
   margin: 0 auto;
 
   h1 {
