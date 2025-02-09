@@ -42,6 +42,10 @@ export const LeftColumn = styled.div`
     max-width: 80%;
     margin-bottom: 20px;
   }
+  @media (max-width: 1000px) {
+    max-width: 100%;
+    
+  }
 `;
 
 // Högerkolumn (ofta text)
