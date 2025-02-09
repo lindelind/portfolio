@@ -17,8 +17,8 @@ const { t } = useTranslation();
 
 const menuItems = [
   { label: t("menu.home"), key: "home", href: "/#home" },
-  { label: t("menu.about"), key: "about", href: "/#about-me" },
   { label: t("menu.techstack"), key: "techstack", href: "/#techstack" },
+  { label: t("menu.about"), key: "about", href: "/#about-me" },
   { label: t("menu.projects"), key: "projects", href: "/#projects" },
   { label: t("menu.contact"), key: "contact", href: "/#contact" },
 ];
