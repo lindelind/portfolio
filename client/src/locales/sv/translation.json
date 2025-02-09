@@ -15,9 +15,25 @@
     "paragraph3": "Under min utbildning och praktik har jag lärt mig mycket om utveckling och teamarbete. Min bakgrund inom kundservice har också gett mig värdefulla insikter i användarbehov, vilket jag tar med mig i varje projekt. Att skapa lösningar som är praktiska, tydliga och roliga att använda är det som driver mig. Nu är jag ivrig att ta med allt jag har lärt mig till arbetsmarknaden och fortsätta växa som utvecklare!"
   },
   "projects": {
-    "heading": "Mina Projekt"
+    "heading": "Mina Projekt",
+    "read_more": "Läs mer"
   },
   "contact": {
-    "heading": "Kontakt"
+    "heading": "Kontakt",
+    "title": "Låt oss skapa något tillsammans – hör av dig!",
+    "namePlaceholder": "Ditt namn",
+    "emailPlaceholder": "Din e-post",
+    "messagePlaceholder": "Ditt meddelande",
+    "sendMessage": "Skicka meddelande",
+    "message_sent": "Meddelandet skickades!",
+    "message_failed": "Meddelandet kunde inte skickas. Försök igen."
+  },
+
+  "menu": {
+    "home": "STARTSIDA",
+    "about": "OM MIG",
+    "techstack": "TECH STACK",
+    "projects": "MINA PROJEKT",
+    "contact": "KONTAKT"
   }
 }

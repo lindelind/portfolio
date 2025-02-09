@@ -15,9 +15,25 @@
     "paragraph3": "During my education and internship, I’ve learned so much about development and teamwork. My background in customer service has also given me valuable insights into user needs, which I bring into every project. Creating solutions that are practical, clear, and enjoyable to use is what drives me. Now, I’m excited to bring everything I’ve learned into the workforce and continue growing as a developer!"
   },
   "projects": {
-    "heading": "My Projects"
+    "heading": "My Projects",
+    "read_more": "Read more"
   },
   "contact": {
-    "heading": "Contact"
+    "heading": "Contact",
+    "title": "Let’s create something together – get in touch!",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "sendMessage": "Send Message",
+    "message_sent": "Message sent!",
+    "message_failed": "Message could not be sent. Please try again."
+    
+  },
+  "menu": {
+    "home": "HOME",
+    "about": "ABOUT ME",
+    "techstack": "TECH STACK",
+    "projects": "MY PROJECTS",
+    "contact": "CONTACT"
   }
 }
