@@ -1,6 +1,7 @@
 
-
 export const NotFound = () => {
 
-    return <>Not Found</>
+    return <>
+    <h1 style={{textAlign: "center"}}>NOT FOUND</h1>
+    </>
 }

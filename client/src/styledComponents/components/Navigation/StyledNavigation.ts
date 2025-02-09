@@ -1,18 +1,23 @@
-.navigation {
+import { styled } from "styled-components";
+
+
+export const StyledNavigation = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #363635;
-  position: fixed; 
+  background-color:rgb(0, 0, 0);
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  opacity: 0.9;
- 
+  opacity: 0.8;
+  text-align: center;
+  width: 100%;
+  height: 8vh;
 
   h1 {
-    font-size: 24px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
     color: white;
   }
 
@@ -21,7 +26,6 @@
     list-style: none;
     justify-content: center;
     padding: 0;
-    
 
     li {
       margin-left: 20px;
@@ -31,11 +35,10 @@
         text-decoration: none;
         color: white;
 
-
         &:hover {
           text-decoration: underline;
         }
       }
     }
   }
-}
+`;
