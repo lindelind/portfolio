@@ -10,6 +10,33 @@ import { PrimaryButton, SecondaryButton } from "../styledComponents/Button";
 import { Modal } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Description } from "../styledComponents/Description";
+import { styled } from "styled-components";
+import { t } from "i18next";
+
+// Anpassad modal med mörk bakgrund
+const StyledModal = styled(Modal)`
+  .ant-modal-content {
+    background-color: #1e1e1e; /* Mörk bakgrund */
+    color: white; /* Vit text */
+    border-radius: 10px;
+  }
+
+  .ant-modal-header {
+    background-color: #1e1e1e; /* Mörkare header */
+    color: white;
+    border-bottom: none;
+  }
+
+  .ant-modal-title {
+    color: white;
+    font-size: 25px;
+  }
+
+  .ant-modal-close-x {
+    color: white;
+  }
+`;
 
 
 
@@ -21,8 +48,10 @@ type Project = {
   url?: string;
 };
 
+ 
 
 const projects: Project[] = [
+  
   {
     image: "/images/matrix.png",
     title: "Matrix",
@@ -77,7 +106,7 @@ const projects: Project[] = [
     image: "/images/hittavet-pic.png",
     title: "HittaVet",
     tags: ["React", "Typescript", "Node", "Firebase"],
-    description: "ExamensArbete Medieinstitutet",
+    description: t("projects.hittavet_description"),
     url: "https://hittavet-c3cf4.web.app",
   },
 ];
@@ -121,6 +150,8 @@ export const Projects = () => {
     setModalContent(null);
   };
 
+  
+
   return (
     <>
       <Swiper {...swiperConfig}>
@@ -142,27 +173,20 @@ export const Projects = () => {
         ))}
       </Swiper>
 
-      <Modal
+      <StyledModal
         title={modalContent ? modalContent.title : ""}
         open={open}
         onCancel={handleCancel}
         footer={null}
       >
-        <p>{modalContent?.description}</p>
-        <p>
-          <strong>Tags:</strong> {modalContent?.tags.join(", ")}
-        </p>
-        {modalContent?.url && (
-          <p>
-            <a
-              href={modalContent.url}
-              target="_blank"
-            >
-              Länk till projektet
-            </a>
-          </p>
-        )}
-      </Modal>
-    </>
-  );
-};
+        <Tags tags={modalContent?.tags} />
+        <br />
+        <Description description={modalContent?.description} />
+        <br />
+        <SecondaryButton>
+          <a href={modalContent?.url}>Live</a>
+        </SecondaryButton>
+      </StyledModal>
+          </>
+      );
+    };

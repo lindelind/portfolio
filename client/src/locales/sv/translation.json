@@ -17,7 +17,8 @@
 },
   "projects": {
     "heading": "Mina Projekt",
-    "read_more": "Läs mer"
+    "read_more": "Läs mer",
+    "hittavet_description": "Examensarbete. Byggde frontend i React, backend i Node. Firebase för databas och authentisering. Använde Googles Places Api samt ett UI bibliotek(Ant design)"
   },
   "contact": {
     "heading": "Kontakt",

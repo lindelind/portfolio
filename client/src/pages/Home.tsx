@@ -93,6 +93,7 @@ const AboutMe: React.FC = () => {
             </LeftColumn>
             <InteractiveBox>
               <DragAndDropIcons />
+              <p>Try moving us around</p>
             </InteractiveBox>
           </StackedLayout>
         )}

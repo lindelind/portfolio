@@ -1,4 +1,5 @@
 
+import { PageContainer } from "../styledComponents/components/Layout/StyledLayout";
 import { StyledFooter } from "../styledComponents/Footer";
 import { StyledIcon } from "../styledComponents/Icons";
 import { ChangeLanguage } from "./ChangeLanguage";
@@ -31,7 +32,9 @@ export const Footer = () => {
           </a>
         </StyledIcon>
       </StyledFooter>
-      <ChangeLanguage />
+      <PageContainer>
+        <ChangeLanguage />
+      </PageContainer>
     </>
   );
 };

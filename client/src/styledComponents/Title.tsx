@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledTitle = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 600;
   color: white;
   margin-top: 25px;
