@@ -1,21 +1,22 @@
 import { Outlet } from "react-router-dom";
-import { Footer } from "../components/Footer";
 import { Navigation } from "../components/Navigation";
-
+import { Footer } from "../components/Footer";
+import { StyledHeader } from "../styledComponents/Header";
+import { StyledMain } from "../styledComponents/Main";
+import { StyledFooter } from "../styledComponents/Footer";
 
 export const Layout = () => {
-
-    return (
-      <>
-        <header>
-          <Navigation/>
-        </header>
-        <main>
-            <Outlet/>
-        </main>
-        <footer>
-            <Footer/>
-        </footer>
-      </>
-    );
-}
+  return (
+    <>
+      <StyledHeader>
+        <Navigation />
+      </StyledHeader>
+      <StyledMain>
+        <Outlet />
+      </StyledMain>
+      <StyledFooter>
+        <Footer />
+      </StyledFooter>
+    </>
+  );
+};

@@ -1,0 +1,39 @@
+{
+  "home": {
+    "title": "Hej. Mitt namn är Alinde.",
+    "subtitle": "Jag är en Fullstack Developer",
+    "contact": "Kontakta mig"
+  },
+  "techstack": {
+    "heading": "Tech Stack",
+    "description": "Jag använder Node.js för backend-utveckling, React och React Native för att bygga responsiva web- och mobilapplikationer, och TypeScript för att förbättra kodkvalitet och underhållbarhet. För realtidsdatahantering och molnfunktioner använder jag Firebase och Firestore. Dessutom arbetar jag med WordPress för innehållshantering och webbplatsutveckling."
+  },
+  "aboutMe": {
+    "heading": "Vem är jag?",
+    "paragraph1": "Jag är en full-stack utvecklare med erfarenhet av React, React Native, TypeScript, Node.js, Firebase och API-integrationer. Jag älskar att kombinera kreativitet med problemlösning för att bygga lösningar som inte bara fungerar smidigt utan även ser bra ut.",
+    "paragraph2": "För mig går en tydlig kodstruktur och en användarvänlig upplevelse hand i hand – oavsett om det handlar om att säkerställa att appen är lätt att använda eller att göra koden lätt att navigera.",
+    "paragraph3": "Under min utbildning och praktik har jag lärt mig mycket om utveckling och teamarbete. Min bakgrund inom kundservice har också gett mig värdefulla insikter i användarbehov, vilket jag tar med mig i varje projekt. Att skapa lösningar som är praktiska, tydliga och roliga att använda är det som driver mig. Nu är jag ivrig att ta med allt jag har lärt mig till arbetsmarknaden och fortsätta växa som utvecklare!"
+  },
+  "projects": {
+    "heading": "Mina Projekt",
+    "read_more": "Läs mer"
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "title": "Låt oss skapa något tillsammans – hör av dig!",
+    "namePlaceholder": "Ditt namn",
+    "emailPlaceholder": "Din e-post",
+    "messagePlaceholder": "Ditt meddelande",
+    "sendMessage": "Skicka meddelande",
+    "message_sent": "Meddelandet skickades!",
+    "message_failed": "Meddelandet kunde inte skickas. Försök igen."
+  },
+
+  "menu": {
+    "home": "STARTSIDA",
+    "about": "OM MIG",
+    "techstack": "TECH STACK",
+    "projects": "MINA PROJEKT",
+    "contact": "KONTAKT"
+  }
+}
