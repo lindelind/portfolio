@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/send-email", (req: any, res: any) => {
+app.post("/api/send-email", (req: any, res: any) => {
   const { name, email, message } = req.body;
 
   const mailOptions = {

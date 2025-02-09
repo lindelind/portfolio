@@ -1,8 +1,13 @@
+
 {
   "hosting": {
-    "public": "dist",
+    "public": "client/dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
+      {
+        "source": "/api/**",
+        "destination": "https://portfolio-obil.onrender.com/api/**"
+      },
       {
         "source": "**",
         "destination": "/index.html"

@@ -57,8 +57,8 @@ const ContactForm = () => {
 
   const API_URL =
     import.meta.env.MODE === "production"
-      ? "https://portfolio-obil.onrender.com"
-      : "http://localhost:3000";
+      ? "https://portfolio-obil.onrender.com/api"
+      : "http://localhost:3000/api";
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
