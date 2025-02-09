@@ -4,6 +4,7 @@ import { useDeviceType } from "../hooks/useDevice";
 import {DesktopMenu} from "../styledComponents/components/Navigation/DesktopMenu";
 import MobileMenu from "../styledComponents/components/Navigation/MobileMenu";
 import { StyledNavigation } from "../styledComponents/components/Navigation/StyledNavigation";
+import { useTranslation } from "react-i18next";
 
 
 export const Navigation = () => {
@@ -12,14 +13,15 @@ export const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const menuItems = [
-    { label: "HOME", key: "home", href: "/#home" },
-    { label: "ABOUT ME", key: "about", href: "/#about-me" },
-    { label: "TECH STACK", key: "contact", href: "/#techstack" },
-    { label: "MY PROJECTS", key: "projects", href: "/#projects" },
-    { label: "CONTACT", key: "contact", href: "/#contact" },
-  ];
+const { t } = useTranslation();
 
+const menuItems = [
+  { label: t("menu.home"), key: "home", href: "/#home" },
+  { label: t("menu.about"), key: "about", href: "/#about-me" },
+  { label: t("menu.techstack"), key: "techstack", href: "/#techstack" },
+  { label: t("menu.projects"), key: "projects", href: "/#projects" },
+  { label: t("menu.contact"), key: "contact", href: "/#contact" },
+];
   const toggleDrawer = () => setOpen((prev) => !prev);
 
   const handleNavigation = (
