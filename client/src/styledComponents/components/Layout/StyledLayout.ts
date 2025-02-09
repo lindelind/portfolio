@@ -38,8 +38,8 @@ export const LeftColumn = styled.div`
     border-radius: 10px;
   }
 
-  @media (max-width: 768px) {
-    max-width: 100%;
+  @media (max-width: 1200px) {
+    max-width: 80%;
     margin-bottom: 20px;
   }
 `;
@@ -75,9 +75,9 @@ export const TextSection = styled.div`
   padding: 20px;
   margin: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
    
-}
+  }
 `;
 
 
