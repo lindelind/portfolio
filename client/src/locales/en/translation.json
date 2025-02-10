@@ -17,7 +17,16 @@
 },
   "projects": {
     "heading": "My Projects",
-    "read_more": "Read more"
+    "read_more": "Read more",
+    "hittavet_description": "Thesis project. Built the frontend in React, backend in Node. Used Firebase for database and authentication. Implemented Google's Places API and a UI library (Ant Design).",
+    "matrix_description": "School project: A digital phonebook with a Matrix theme.",
+    "väder_description": "School project: Weather app. Utilized WeatherBit's API and the GeoLocation API. Displays weather forecasts for today and tomorrow.",
+    "retrogames_description": "School project: E-commerce site with a retro gaming theme. Integrated with Stripe.",
+    "swedishfika_description": "School project: E-commerce site with a Swedish fika theme. Integrated with Stripe and PostNord's API.",
+    "newsletter_description": "School project: We created a platform where customers can create newsletters, and subscribers can sign up to receive newsletters created by customers.",
+    "todo_description": "School project: Digital to-do list.",
+    "imagesearch_description": "School project: Image search engine. Login via Auth0 is required to access search functionality. Users can save their favorite images on their personal page."
+
   },
   "contact": {
     "heading": "Contact",

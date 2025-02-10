@@ -7,9 +7,11 @@ export const ChangeLanguage = () => {
 
   const onClickChangeLanguage = (language: string) => {
     i18n.changeLanguage(language);
-
+   
     setCurrentLang(language);
-    message.success("Language set to: " + language);
+      const languageName = language === "sv" ? "Swedish" : "English";
+    message.success(`Changed language to ${languageName}`);
+  
   };
 
   return (

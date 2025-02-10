@@ -18,7 +18,14 @@
   "projects": {
     "heading": "Mina Projekt",
     "read_more": "Läs mer",
-    "hittavet_description": "Examensarbete. Byggde frontend i React, backend i Node. Firebase för databas och authentisering. Använde Googles Places Api samt ett UI bibliotek(Ant design)"
+    "hittavet_description": "Examensarbete. Byggde frontend i React, backend i Node. Firebase för databas och authentisering. Använde Googles Places Api samt ett UI bibliotek(Ant design)",
+    "matrix_description":"Skolprojekt: En digital telefonbok med matrix-tema.",
+    "väder_description":"Skolprojekt: Väderleks-app. Användning av WeatherBits API och GeoLocation API. Visar dagens och morgondagens väderprognos. ",
+    "retrogames_description":"Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe",
+    "swedishfika_description":"Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe och postnords API",
+    "newsletter_description":"Skolprojekt: Vi skapade en sida där man som kund kan skapa nyhetsbrev, eller man som prenumerant kan signa upp till att prenumerera på kunders skapade nyhetsbrev.",
+    "todo_description":"Skolprojekt: Digital Todo-lista. ",
+    "imagesearch_description":"Skolprojekt: Bildsökmotor. Inlogg via auth0 för att få tillgång till att söka. Du kan sedan spara dina favoritbilder på din sida."
   },
   "contact": {
     "heading": "Kontakt",
