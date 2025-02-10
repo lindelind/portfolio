@@ -14,6 +14,7 @@ import { Description } from "../styledComponents/Description";
 import { styled } from "styled-components";
 import { t } from "i18next";
 
+
 // Anpassad modal med mörk bakgrund
 const StyledModal = styled(Modal)`
   .ant-modal-content {
@@ -51,55 +52,54 @@ type Project = {
  
 
 const projects: Project[] = [
-  
+ 
   {
     image: "/images/matrix.png",
     title: "Matrix",
     tags: ["JavaScript", "HTML", "CSS"],
-    description: "Kontakt bok med Matrix-tema",
+    description: t("projects.matrix_description"),
     url: "https://signup-matrix.netlify.app",
   },
   {
     image: "/images/vädret.png",
     title: "Vädret.Nu",
     tags: ["JavaScript", "HTML", "CSS", "API"],
-    description:
-      "Uppgift i frontendkursen där vi använde oss av ett externt api.",
+    description: t("projects.väder_description"),
     url: "https://searchweathertoday.netlify.app",
   },
   {
     image: "/images/retrogames2.png",
     title: "Retro Games",
     tags: ["React", "Stripe", "MongoDB", "Node"],
-    description: "Webshop",
+    description: t("projects.retrogames_description"),
     url: "",
   },
   {
     image: "/images/swedishfika.png",
     title: "Swedish Fika",
     tags: ["React", "Stripe", "JSON", "Node", "SASS"],
-    description: "Webshop",
+    description: t("projects.swedishfika_description"),
     url: "",
   },
   {
     image: "/images/newsletter.png",
     title: "Newsletters",
     tags: ["PHP", "SQL", "Docker"],
-    description: "Webshop",
+    description: t("projects.newsletter_description"),
     url: "",
   },
   {
     image: "/images/imagessearch2.png",
     title: "Image Search",
     tags: ["React", "Auth0"],
-    description: "Sökmotor Bilder",
+    description: t("projects.imagesearch_description"),
     url: "",
   },
   {
     image: "/images/todo.png",
     title: "Todo-app",
     tags: ["React", "CSS"],
-    description: "Todo-app",
+    description: t("projects.todo_description"),
     url: "https://alinde-ost-todo.web.app",
   },
   {
@@ -112,12 +112,72 @@ const projects: Project[] = [
 ];
 
 export const Projects = () => {
+  const { t } = useTranslation();
+
+  const projects: Project[] = [
+    {
+      image: "/images/matrix.png",
+      title: "Matrix",
+      tags: ["JavaScript", "HTML", "CSS"],
+      description: t("projects.matrix_description"),
+      url: "https://signup-matrix.netlify.app",
+    },
+    {
+      image: "/images/vädret.png",
+      title: "Vädret.Nu",
+      tags: ["JavaScript", "HTML", "CSS", "API"],
+      description: t("projects.väder_description"),
+      url: "https://searchweathertoday.netlify.app",
+    },
+    {
+      image: "/images/retrogames2.png",
+      title: "Retro Games",
+      tags: ["React", "Stripe", "MongoDB", "Node"],
+      description: t("projects.retrogames_description"),
+      url: "",
+    },
+    {
+      image: "/images/swedishfika.png",
+      title: "Swedish Fika",
+      tags: ["React", "Stripe", "JSON", "Node", "SASS"],
+      description: t("projects.swedishfika_description"),
+      url: "",
+    },
+    {
+      image: "/images/newsletter.png",
+      title: "Newsletters",
+      tags: ["PHP", "SQL", "Docker"],
+      description: t("projects.newsletter_description"),
+      url: "",
+    },
+    {
+      image: "/images/imagessearch2.png",
+      title: "Image Search",
+      tags: ["React", "Auth0"],
+      description: t("projects.imagesearch_description"),
+      url: "",
+    },
+    {
+      image: "/images/todo.png",
+      title: "Todo-app",
+      tags: ["React", "CSS"],
+      description: t("projects.todo_description"),
+      url: "https://alinde-ost-todo.web.app",
+    },
+    {
+      image: "/images/hittavet-pic.png",
+      title: "HittaVet",
+      tags: ["React", "Typescript", "Node", "Firebase"],
+      description: t("projects.hittavet_description"),
+      url: "https://hittavet-c3cf4.web.app",
+    },
+  ];
 
   const [open, setOpen] = useState(false);
   const [modalContent, setModalContent] = useState<Project | null>(null);
 
   const deviceType = useDeviceType();
-  const {t} = useTranslation();
+  
 
   const swiperConfig = {
     spaceBetween: 13,
@@ -179,9 +239,9 @@ export const Projects = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <Tags tags={modalContent?.tags} />
+        <Tags tags={modalContent?.tags || []} />
         <br />
-        <Description description={modalContent?.description} />
+        <Description description={modalContent?.description || ""}  />
         <br />
         <SecondaryButton>
           <a href={modalContent?.url}>Live</a>
