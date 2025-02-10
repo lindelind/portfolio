@@ -8,7 +8,8 @@ import {
   TextSection,
   InteractiveBox,
 } from "../styledComponents/components/Layout/StyledLayout";
-import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
+// import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
+
 import { MeImage, Pictures } from "../styledComponents/Images";
 import { CustomButton } from "../styledComponents/Button";
 import { Projects } from "../components/Projects";
@@ -16,6 +17,8 @@ import { Contact } from "../components/Contact";
 import { Arrow } from "../components/animations/Arrow";
 import { useDeviceType } from "../hooks/useDevice";
 import { useTranslation } from "react-i18next";
+import { BouncingIcons } from "../components/animations/BouncingIcons";
+import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
 
 const AboutMe: React.FC = () => {
   const deviceType = useDeviceType();
@@ -58,9 +61,7 @@ const AboutMe: React.FC = () => {
 
         {deviceType != "desktop" ? (
           <>
-            <InteractiveBox>
-              <DragAndDropIcons />
-            </InteractiveBox>
+            <BouncingIcons />
             <StackedLayout>
               <LeftColumn>
                 <TextSection>
@@ -93,7 +94,6 @@ const AboutMe: React.FC = () => {
             </LeftColumn>
             <InteractiveBox>
               <DragAndDropIcons />
-              <p>Try moving us around</p>
             </InteractiveBox>
           </StackedLayout>
         )}
