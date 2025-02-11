@@ -12,10 +12,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Description } from "../styledComponents/Description";
 import { styled } from "styled-components";
-import { t } from "i18next";
 
 
-// Anpassad modal med mörk bakgrund
 const StyledModal = styled(Modal)`
   .ant-modal-content {
     background-color: #1e1e1e; /* Mörk bakgrund */
@@ -50,67 +48,6 @@ type Project = {
 };
 
  
-
-const projects: Project[] = [
- 
-  {
-    image: "/images/matrix.png",
-    title: "Matrix",
-    tags: ["JavaScript", "HTML", "CSS"],
-    description: t("projects.matrix_description"),
-    url: "https://signup-matrix.netlify.app",
-  },
-  {
-    image: "/images/vädret.png",
-    title: "Vädret.Nu",
-    tags: ["JavaScript", "HTML", "CSS", "API"],
-    description: t("projects.väder_description"),
-    url: "https://searchweathertoday.netlify.app",
-  },
-  {
-    image: "/images/retrogames2.png",
-    title: "Retro Games",
-    tags: ["React", "Stripe", "MongoDB", "Node"],
-    description: t("projects.retrogames_description"),
-    url: "",
-  },
-  {
-    image: "/images/swedishfika.png",
-    title: "Swedish Fika",
-    tags: ["React", "Stripe", "JSON", "Node", "SASS"],
-    description: t("projects.swedishfika_description"),
-    url: "",
-  },
-  {
-    image: "/images/newsletter.png",
-    title: "Newsletters",
-    tags: ["PHP", "SQL", "Docker"],
-    description: t("projects.newsletter_description"),
-    url: "",
-  },
-  {
-    image: "/images/imagessearch2.png",
-    title: "Image Search",
-    tags: ["React", "Auth0"],
-    description: t("projects.imagesearch_description"),
-    url: "",
-  },
-  {
-    image: "/images/todo.png",
-    title: "Todo-app",
-    tags: ["React", "CSS"],
-    description: t("projects.todo_description"),
-    url: "https://alinde-ost-todo.web.app",
-  },
-  {
-    image: "/images/hittavet-pic.png",
-    title: "HittaVet",
-    tags: ["React", "Typescript", "Node", "Firebase"],
-    description: t("projects.hittavet_description"),
-    url: "https://hittavet-c3cf4.web.app",
-  },
-];
-
 export const Projects = () => {
   const { t } = useTranslation();
 
@@ -134,28 +71,28 @@ export const Projects = () => {
       title: "Retro Games",
       tags: ["React", "Stripe", "MongoDB", "Node"],
       description: t("projects.retrogames_description"),
-      url: "",
+      
     },
     {
       image: "/images/swedishfika.png",
       title: "Swedish Fika",
       tags: ["React", "Stripe", "JSON", "Node", "SASS"],
       description: t("projects.swedishfika_description"),
-      url: "",
+      
     },
     {
       image: "/images/newsletter.png",
       title: "Newsletters",
       tags: ["PHP", "SQL", "Docker"],
       description: t("projects.newsletter_description"),
-      url: "",
+      
     },
     {
       image: "/images/imagessearch2.png",
       title: "Image Search",
       tags: ["React", "Auth0"],
       description: t("projects.imagesearch_description"),
-      url: "",
+      
     },
     {
       image: "/images/todo.png",
@@ -221,9 +158,16 @@ export const Projects = () => {
               <Title title={project.title} />
               <Tags tags={project.tags} />
               <br />
-              <SecondaryButton>
-                <a href={project.url}>Live</a>
-              </SecondaryButton>
+
+              {project?.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SecondaryButton>Live</SecondaryButton>
+                </a>
+              )}
               <br />
               <PrimaryButton onClick={() => showModal(project)}>
                 {t("projects.read_more")}
@@ -241,12 +185,14 @@ export const Projects = () => {
       >
         <Tags tags={modalContent?.tags || []} />
         <br />
-        <Description description={modalContent?.description || ""}  />
+        <Description description={modalContent?.description || ""} />
         <br />
-        <SecondaryButton>
-          <a href={modalContent?.url}>Live</a>
-        </SecondaryButton>
+        {modalContent?.url && (
+          <a href={modalContent.url} target="_blank" rel="noopener noreferrer">
+            <SecondaryButton>Live</SecondaryButton>
+          </a>
+        )}
       </StyledModal>
-          </>
-      );
+    </>
+  );
     };
