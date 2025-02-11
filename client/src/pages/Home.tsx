@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   PageContainer,
   TwoColumnLayout,
@@ -8,7 +8,7 @@ import {
   TextSection,
   InteractiveBox,
 } from "../styledComponents/components/Layout/StyledLayout";
-// import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
+
 
 import { MeImage, Pictures } from "../styledComponents/Images";
 import { CustomButton } from "../styledComponents/Button";
@@ -23,6 +23,7 @@ import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
 const AboutMe: React.FC = () => {
   const deviceType = useDeviceType();
   const { t } = useTranslation();
+  const [imageSrc, setImageSrc] = useState("/images/me.png");
 
   return (
     <>
@@ -41,7 +42,12 @@ const AboutMe: React.FC = () => {
           </LeftColumn>
           <RightColumn>
             <Pictures>
-              <MeImage src="/images/me.png" alt="Placeholder" />
+              <MeImage
+                src={imageSrc}
+                alt="Profile"
+                onMouseEnter={() => setImageSrc("/images/me-Colorized.jpg")}
+                onMouseLeave={() => setImageSrc("/images/me.png")}
+              />
             </Pictures>
           </RightColumn>
         </TwoColumnLayout>

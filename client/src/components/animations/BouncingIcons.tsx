@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
-// Vår container (InteractiveBox) med responsiva egenskaper
 export const InteractiveBox = styled.div`
   position: relative;
   width: 500px;
@@ -19,7 +18,6 @@ export const InteractiveBox = styled.div`
   }
 `;
 
-// Ikonens wrapper (positionerad absolut med transform)
 const IconWrapper = styled.div.attrs<{ x: number; y: number; size: number }>(
   (props) => ({
     style: {
@@ -33,13 +31,11 @@ const IconWrapper = styled.div.attrs<{ x: number; y: number; size: number }>(
 `;
 
 
-// Bilden i ikonen
 const IconImage = styled.img`
   width: 100%;
   height: 100%;
 `;
 
-// Data för våra ikoner
 const iconsData = [
   { id: "react", src: "/svg/react.svg", alt: "React Logo" },
   { id: "firebase", src: "/svg/firebase.svg", alt: "Firebase Logo" },
@@ -52,7 +48,7 @@ const iconsData = [
   { id: "sass", src: "/svg/sass1.svg", alt: "SASS Logo" },
 ];
 
-// Typ för tillståndet för varje ikon
+
 interface IconState {
   id: string;
   x: number;
@@ -64,22 +60,21 @@ interface IconState {
 }
 
 export const BouncingIcons = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [containerDimensions, setContainerDimensions] = useState({
-    width: 500,
-    height: 300,
-  });
-  const iconSize = 50;
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const containerDimsRef = useRef({ width: 500, height: 300 });
+  const iconSize = 50; 
   const [icons, setIcons] = useState<IconState[]>([]);
   const animationRef = useRef<number>();
+
 
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
         const width = containerRef.current.clientWidth;
         const height = containerRef.current.clientHeight;
-        setContainerDimensions({ width, height });
+        containerDimsRef.current = { width, height };
       }
     };
     updateDimensions();
@@ -87,8 +82,9 @@ export const BouncingIcons = () => {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
+ 
   useEffect(() => {
-    const { width, height } = containerDimensions;
+    const { width, height } = containerDimsRef.current;
     const initialIcons: IconState[] = iconsData.map((icon) => ({
       id: icon.id,
       x: Math.random() * (width - iconSize),
@@ -99,32 +95,39 @@ export const BouncingIcons = () => {
       alt: icon.alt,
     }));
     setIcons(initialIcons);
+  }, []);
 
+
+  useEffect(() => {
     let lastTime = performance.now();
 
     const update = (time: number) => {
-      const dt = (time - lastTime) / 16.67;
+      const dt = (time - lastTime) / 16.67; 
       lastTime = time;
+
       setIcons((prevIcons) =>
         prevIcons.map((icon) => {
           let newX = icon.x + icon.vx * dt;
           let newY = icon.y + icon.vy * dt;
           let newVx = icon.vx;
           let newVy = icon.vy;
+          const { width, height } = containerDimsRef.current;
 
+      
           if (newX < 0) {
             newX = 0;
             newVx = Math.abs(newVx);
-          } else if (newX + iconSize > containerDimensions.width) {
-            newX = containerDimensions.width - iconSize;
+          } else if (newX + iconSize > width) {
+            newX = width - iconSize;
             newVx = -Math.abs(newVx);
           }
 
+         
           if (newY < 0) {
             newY = 0;
             newVy = Math.abs(newVy);
-          } else if (newY + iconSize > containerDimensions.height) {
-            newY = containerDimensions.height - iconSize;
+          } else if (newY + iconSize > height) {
+            newY = height - iconSize;
             newVy = -Math.abs(newVy);
           }
 
@@ -136,11 +139,9 @@ export const BouncingIcons = () => {
 
     animationRef.current = requestAnimationFrame(update);
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [containerDimensions, iconSize]);
+  }, []);
 
   return (
     <InteractiveBox ref={containerRef}>
