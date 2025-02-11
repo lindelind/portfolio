@@ -1,6 +1,6 @@
 import { PageContainer, TwoColumnLayout, RightColumn } from "../styledComponents/components/Layout/StyledLayout"
 import { MeImage} from "../styledComponents/Images";
-import ContactForm from "./ContactForm";
+import {ContactForm} from"./ContactForm";
 
 
 
