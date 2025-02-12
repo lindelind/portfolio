@@ -46,6 +46,9 @@ const iconsData = [
   { id: "css", src: "/svg/css.svg", alt: "CSS Logo" },
   { id: "html", src: "/svg/html.svg", alt: "HTML Logo" },
   { id: "sass", src: "/svg/sass1.svg", alt: "SASS Logo" },
+  { id: "php", src: "/svg/php.svg", alt: "php Logo" },
+  { id: "mongodb", src: "/svg/mongodb.svg", alt: "mongodb Logo" },
+  { id: "docker", src: "/svg/docker.svg", alt: "docker Logo" },
 ];
 
 

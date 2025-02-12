@@ -6,12 +6,11 @@ import {
   RightColumn,
   StackedLayout,
   TextSection,
-  InteractiveBox,
 } from "../styledComponents/components/Layout/StyledLayout";
 
 
 import { MeImage, Pictures } from "../styledComponents/Images";
-import { CustomButton } from "../styledComponents/Button";
+import { CustomButton, PrimaryButton } from "../styledComponents/Button";
 import { Projects } from "../components/Projects";
 import { Contact } from "../components/Contact";
 import { Arrow } from "../components/animations/Arrow";
@@ -24,6 +23,8 @@ const AboutMe: React.FC = () => {
   const deviceType = useDeviceType();
   const { t } = useTranslation();
   const [imageSrc, setImageSrc] = useState("/images/me.png");
+  const [showFirstComponent, setShowFirstComponent] = useState(true);
+
 
   return (
     <>
@@ -61,14 +62,28 @@ const AboutMe: React.FC = () => {
                 <h2>{t("techstack.heading")}</h2>
                 <p>{t("techstack.description")}</p>
               </TextSection>
+              {deviceType === "desktop" && (
+                <PrimaryButton
+                  style={{ position: "absolute", marginLeft: "600px" }}
+                  onClick={() => setShowFirstComponent(!showFirstComponent)}
+                >
+                  {t("click_me")}
+                </PrimaryButton>
+              )}
             </section>
           </LeftColumn>
         </StackedLayout>
 
         {deviceType != "desktop" ? (
           <>
-            <BouncingIcons />
+            {showFirstComponent ? <BouncingIcons /> : <DragAndDropIcons />}
             <StackedLayout>
+              <br />
+              <PrimaryButton
+                onClick={() => setShowFirstComponent(!showFirstComponent)}
+              >
+                {t("click_me")}
+              </PrimaryButton>
               <LeftColumn>
                 <TextSection>
                   <section id="about-me">
@@ -98,9 +113,7 @@ const AboutMe: React.FC = () => {
                 <p>{t("aboutMe.paragraph3")}</p>
               </TextSection>
             </LeftColumn>
-            <InteractiveBox>
-              <DragAndDropIcons />
-            </InteractiveBox>
+            {showFirstComponent ? <DragAndDropIcons /> : <BouncingIcons />}
           </StackedLayout>
         )}
       </PageContainer>

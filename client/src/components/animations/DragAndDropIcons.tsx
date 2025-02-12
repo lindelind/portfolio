@@ -10,6 +10,8 @@ import {
 } from "@dnd-kit/core";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { InteractiveBox } from "./BouncingIcons";
+import { useDeviceType } from "../../hooks/useDevice";
 
 const DraggableIcon = styled.div<{ size: number }>`
   position: absolute;
@@ -41,6 +43,9 @@ const icons = [
   { id: "css", src: "/svg/css.svg", alt: "CSS Logo" },
   { id: "html", src: "/svg/html.svg", alt: "HTML Logo" },
   { id: "sass", src: "/svg/sass1.svg", alt: "SASS Logo" },
+  { id: "php", src: "/svg/php.svg", alt: "php Logo" },
+  { id: "mongodb", src: "/svg/mongodb.svg", alt: "mongodb Logo" },
+  { id: "docker", src: "/svg/docker.svg", alt: "docker Logo" },
 ];
 
 interface DraggableProps {
@@ -76,7 +81,7 @@ export const DragAndDropIcons = () => {
   >({});
   const [boxSize, setBoxSize] = useState({ width: 500, height: 300 });
   const [iconSize, setIconSize] = useState(90);
-
+  const deviceType = useDeviceType();
 
   const sensors = useSensors(
     useSensor(MouseSensor),
@@ -89,16 +94,20 @@ export const DragAndDropIcons = () => {
 
   useEffect(() => {
     const updateSize = () => {
-      const width = Math.min(500, window.innerWidth * 0.8);
+      const width = Math.min(500, window.innerWidth * 1.1);
       const height = 300;
-      const size = width / 8;
+      const size = width / 11;
 
       setBoxSize({ width, height });
       setIconSize(size);
 
       const rows = Math.ceil(icons.length / 3);
-      const startX = (width - 3 * size) / 2;
+      let startX = (width - 3 * size) / 2;
       const startY = (height - rows * size) / 2;
+
+      if (deviceType === "mobile") {
+        startX = (width - 3 * size) / 3; 
+      }
 
       const newPositions: Record<string, { x: number; y: number }> = {};
       icons.forEach((icon, index) => {
@@ -116,7 +125,7 @@ export const DragAndDropIcons = () => {
     updateSize();
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
-  }, []);
+  }, [deviceType]); // Lägg till deviceType här om det är en prop eller state
 
   const handleDragEnd = (event: any) => {
     const { id } = event.active;
@@ -132,18 +141,20 @@ export const DragAndDropIcons = () => {
   };
 
   return (
-    <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
-      {icons.map((icon) => (
-        <Draggable
-          key={icon.id}
-          id={icon.id}
-          x={positions[icon.id]?.x || 0}
-          y={positions[icon.id]?.y || 0}
-          size={iconSize}
-          src={icon.src}
-          alt={icon.alt}
-        />
-      ))}
-    </DndContext>
+    <InteractiveBox>
+      <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
+        {icons.map((icon) => (
+          <Draggable
+            key={icon.id}
+            id={icon.id}
+            x={positions[icon.id]?.x || 0}
+            y={positions[icon.id]?.y || 0}
+            size={iconSize}
+            src={icon.src}
+            alt={icon.alt}
+          />
+        ))}
+      </DndContext>
+    </InteractiveBox>
   );
 };
