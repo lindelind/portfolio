@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   PageContainer,
   TwoColumnLayout,
@@ -7,7 +8,6 @@ import {
   StackedLayout,
   TextSection,
 } from "../styledComponents/components/Layout/StyledLayout";
-
 
 import { MeImage, Pictures } from "../styledComponents/Images";
 import { CustomButton, PrimaryButton } from "../styledComponents/Button";
@@ -19,12 +19,39 @@ import { useTranslation } from "react-i18next";
 import { BouncingIcons } from "../components/animations/BouncingIcons";
 import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
 
+
+const blurVariants = {
+  hidden: { opacity: 0, filter: "blur(10px)" },
+  visible: { opacity: 1, filter: "blur(0px)", transition: { duration: 0.5 } },
+  exit: { opacity: 0, filter: "blur(10px)", transition: { duration: 0.5 } },
+};
+
+interface ToggleButtonProps {
+  toggleIcons: () => void;
+}
+
+export const ToggleButton: React.FC<ToggleButtonProps> = ({ toggleIcons }) => {
+  const [buttonText, setButtonText] = useState("Dansa?");
+
+  const handleClick = () => {
+    setButtonText((prev) => (prev === "Pausa?" ? "Dansa?" : "Pausa?"));
+    toggleIcons();
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "10px" }}>
+      <PrimaryButton onClick={handleClick}>{buttonText}</PrimaryButton>
+    </div>
+  );
+};
+
+
+
 const AboutMe: React.FC = () => {
   const deviceType = useDeviceType();
   const { t } = useTranslation();
   const [imageSrc, setImageSrc] = useState("/images/me.png");
   const [showFirstComponent, setShowFirstComponent] = useState(true);
-
 
   return (
     <>
@@ -62,28 +89,29 @@ const AboutMe: React.FC = () => {
                 <h2>{t("techstack.heading")}</h2>
                 <p>{t("techstack.description")}</p>
               </TextSection>
-              {deviceType === "desktop" && (
-                <PrimaryButton
-                  style={{ position: "absolute", marginLeft: "600px" }}
-                  onClick={() => setShowFirstComponent(!showFirstComponent)}
-                >
-                  {t("click_me")}
-                </PrimaryButton>
-              )}
             </section>
           </LeftColumn>
         </StackedLayout>
 
-        {deviceType != "desktop" ? (
+        {deviceType !== "desktop" ? (
           <>
-            {showFirstComponent ? <BouncingIcons /> : <DragAndDropIcons />}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={showFirstComponent ? "dragDrop" : "bouncing"}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={blurVariants}
+              >
+                {showFirstComponent ? <DragAndDropIcons /> : <BouncingIcons />}
+              </motion.div>
+            </AnimatePresence>
             <StackedLayout>
               <br />
-              <PrimaryButton
-                onClick={() => setShowFirstComponent(!showFirstComponent)}
-              >
-                {t("click_me")}
-              </PrimaryButton>
+              <ToggleButton
+                toggleIcons={() => setShowFirstComponent(!showFirstComponent)}
+              />
+
               <LeftColumn>
                 <TextSection>
                   <section id="about-me">
@@ -100,7 +128,8 @@ const AboutMe: React.FC = () => {
             </StackedLayout>
           </>
         ) : (
-          <StackedLayout>
+          
+          <TwoColumnLayout>
             <LeftColumn>
               <TextSection>
                 <section id="about-me">
@@ -113,8 +142,29 @@ const AboutMe: React.FC = () => {
                 <p>{t("aboutMe.paragraph3")}</p>
               </TextSection>
             </LeftColumn>
-            {showFirstComponent ? <DragAndDropIcons /> : <BouncingIcons />}
-          </StackedLayout>
+            <RightColumn style={{marginLeft: "100px"}}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={showFirstComponent ? "dragDrop" : "bouncing"}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={blurVariants}
+                >
+                  {showFirstComponent ? (
+                    <DragAndDropIcons />
+                  ) : (
+                    <BouncingIcons />
+                  )}
+                </motion.div>
+              </AnimatePresence>
+
+              <br />
+              <ToggleButton
+                toggleIcons={() => setShowFirstComponent(!showFirstComponent)}
+              />
+            </RightColumn>
+          </TwoColumnLayout>
         )}
       </PageContainer>
 

@@ -106,7 +106,7 @@ export const DragAndDropIcons = () => {
       const startY = (height - rows * size) / 2;
 
       if (deviceType === "mobile") {
-        startX = (width - 3 * size) / 3; 
+        startX = (width - 3 * size) / 4; 
       }
 
       const newPositions: Record<string, { x: number; y: number }> = {};
