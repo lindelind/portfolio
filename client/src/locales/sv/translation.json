@@ -25,7 +25,8 @@
     "swedishfika_description":"Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe och postnords API",
     "newsletter_description":"Skolprojekt: Vi skapade en sida där man som kund kan skapa nyhetsbrev, eller man som prenumerant kan signa upp till att prenumerera på kunders skapade nyhetsbrev.",
     "todo_description":"Skolprojekt: Digital Todo-lista. ",
-    "imagesearch_description":"Skolprojekt: Bildsökmotor. Inlogg via auth0 för att få tillgång till att söka. Du kan sedan spara dina favoritbilder på din sida."
+    "imagesearch_description":"Skolprojekt: Bildsökmotor. Inlogg via auth0 för att få tillgång till att söka. Du kan sedan spara dina favoritbilder på din sida.",
+    "tumbleweed_description":"Fritidsprojekt (Under utveckling): Pick the Tumbleweed är ett roligt och utmanande spel där du måste fånga så många tumbleweeds som möjligt innan tiden tar slut! Ju fler du fångar, desto snabbare rullar de in. Kan du slå ditt highscore och hålla spelet vid liv?"
   },
   "contact": {
     "heading": "Kontakt",

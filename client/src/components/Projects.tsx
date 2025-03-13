@@ -67,33 +67,37 @@ export const Projects = () => {
       url: "https://searchweathertoday.netlify.app",
     },
     {
+      image: "/images/tumbleweed.png",
+      title: "Pick the Tumbleweed",
+      tags: ["React", "Firebase", "CSS"],
+      description: t("projects.tumbleweed_description"),
+      url: "https://tumbleweed-game.web.app"
+    },
+    {
       image: "/images/retrogames2.png",
       title: "Retro Games",
       tags: ["React", "Stripe", "MongoDB", "Node"],
       description: t("projects.retrogames_description"),
-      
     },
     {
       image: "/images/swedishfika.png",
       title: "Swedish Fika",
       tags: ["React", "Stripe", "JSON", "Node", "SASS"],
       description: t("projects.swedishfika_description"),
-      
     },
     {
       image: "/images/newsletter.png",
       title: "Newsletters",
       tags: ["PHP", "SQL", "Docker"],
       description: t("projects.newsletter_description"),
-      
     },
     {
       image: "/images/imagessearch2.png",
       title: "Image Search",
       tags: ["React", "Auth0"],
       description: t("projects.imagesearch_description"),
-      
     },
+
     {
       image: "/images/todo.png",
       title: "Todo-app",
