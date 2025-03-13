@@ -72,18 +72,19 @@ const MobileMenuButton = styled(Button)`
 
 const StyledDrawer = styled(Drawer)`
   .ant-drawer-body {
-    // background-color: #1e1e1e; !important;
+    background-color: black !important;
     color: white;
   }
 
   .ant-menu-item {
-  font-size: 16px;
-  font-weight: bold;
-  padding: 12px 20px; /* Justera avstånd */
-  transition: all 0.3s ease;
-  background-color: black;
-  color: white;
-}
+  font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    // padding: 12px 20px; /* Justera avstånd */
+    transition: all 0.3s ease;
+    background-color: black;
+    color: white;
+  }
 
   
 `;
