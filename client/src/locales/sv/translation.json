@@ -4,29 +4,29 @@
     "subtitle": "Jag är en Fullstack Developer",
     "contact": "Kontakta mig"
   },
-"techstack": {
-  "heading": "Tech Stack",
-  "description": "Jag har god erfarenhet av React, TypeScript, Node.js och Firebase för att bygga både web- och mobilapplikationer. Jag använder dessa verktyg för att skapa responsiva gränssnitt, hålla koden ren och effektiv, och hantera realtidsdata. Jag har också erfarenhet av att arbeta med både SQL och NoSQL-databaser som MySQL, MongoDB och Firebase Firestore. Utöver det har jag arbetat med Docker för containerisering och byggt hemsidor och plugins med PHP och WordPress. Jag är också intresserad av AI-utveckling och har experimenterat med OpenAI och använt verktyget PromptLayer. För mig känns det både kul och viktigt att undersöka nya verktyg och språk för att ha en större verktygslåda att välja mellan när jag bygger mina projekt. Därför lär jag mig just nu mer om C# och .NET."
-},
-"aboutMe": {
-  "heading": "Vem är jag?",
-  "paragraph1": "Jag är en fullstackutvecklare på väg ut i arbetslivet, med erfarenhet av både frontend och backendutveckling. Jag älskar att kombinera kreativitet med problemlösning för att bygga lösningar som både fungerar smidigt och ser bra ut. För mig går en tydlig kodstruktur och en användarvänlig upplevelse hand i hand – oavsett om det handlar om att säkerställa att appen är lätt att använda eller att göra koden lätt att navigera.",
-  "paragraph2": "Under min utbildning och praktik har jag arbetat med flera projekt där jag byggt funktionella lösningar med teknologier som React, React Native, TypeScript, Node.js, PHP, Firebase och SQL/NoSQL-databaser. Jag har även arbetat med API-integrationer och förbättrat användarflöden i mobilappar.  Mer information finns under MINA PROJEKT.",
-  "paragraph3": "Min bakgrund inom kundservice har gett mig värdefulla soft skills, som förmågan att kommunicera effektivt, lyssna på och förstå användarbehov samt att samarbeta bra i team. Jag är bra på att förstå vad som krävs för att skapa en positiv användarupplevelse och kan snabbt anpassa mig efter nya krav och utmaningar.",
-  "paragraph4": "Jag ser fram emot att ta med både mina tekniska färdigheter och mina erfarenheter från kundservice till ett utvecklarjobb, där jag kan bidra till att skapa både användarvänliga och tekniskt hållbara lösningar."
-},
+  "techstack": {
+    "heading": "Tech Stack",
+    "description": "Jag har god erfarenhet av React, TypeScript, Node.js och Firebase för att bygga både web- och mobilapplikationer. Jag använder dessa verktyg för att skapa responsiva gränssnitt, hålla koden ren och effektiv, och hantera realtidsdata. Jag har också erfarenhet av att arbeta med både SQL och NoSQL-databaser som MySQL, MongoDB och Firebase Firestore. Utöver det har jag arbetat med Docker för containerisering och byggt hemsidor och plugins med PHP och WordPress. Jag är också intresserad av AI-utveckling och har experimenterat med OpenAI och använt verktyget PromptLayer. För mig känns det både kul och viktigt att undersöka nya verktyg och språk för att ha en större verktygslåda att välja mellan när jag bygger mina projekt. Därför lär jag mig just nu mer om C# och .NET."
+  },
+  "aboutMe": {
+    "heading": "Vem är jag?",
+    "paragraph1": "Jag är en fullstackutvecklare på väg ut i arbetslivet, med erfarenhet av både frontend och backendutveckling. Jag älskar att kombinera kreativitet med problemlösning för att bygga lösningar som både fungerar smidigt och ser bra ut. För mig går en tydlig kodstruktur och en användarvänlig upplevelse hand i hand – oavsett om det handlar om att säkerställa att appen är lätt att använda eller att göra koden lätt att navigera.",
+    "paragraph2": "Under min utbildning och praktik har jag arbetat med flera projekt där jag byggt funktionella lösningar med teknologier som React, React Native, TypeScript, Node.js, PHP, Firebase och SQL/NoSQL-databaser. Jag har även arbetat med API-integrationer och förbättrat användarflöden i mobilappar.  Mer information finns under MINA PROJEKT.",
+    "paragraph3": "Min bakgrund inom kundservice har gett mig värdefulla soft skills, som förmågan att kommunicera effektivt, lyssna på och förstå användarbehov samt att samarbeta bra i team. Jag är bra på att förstå vad som krävs för att skapa en positiv användarupplevelse och kan snabbt anpassa mig efter nya krav och utmaningar.",
+    "paragraph4": "Jag ser fram emot att ta med både mina tekniska färdigheter och mina erfarenheter från kundservice till ett utvecklarjobb, där jag kan bidra till att skapa både användarvänliga och tekniskt hållbara lösningar."
+  },
   "projects": {
     "heading": "Mina Projekt",
     "read_more": "Läs mer",
     "hittavet_description": "Examensarbete. Byggde frontend i React, backend i Node. Firebase för databas och authentisering. Använde Googles Places Api samt ett UI bibliotek(Ant design)",
-    "matrix_description":"Skolprojekt: En digital telefonbok med matrix-tema.",
-    "väder_description":"Skolprojekt: Väderleks-app. Användning av WeatherBits API och GeoLocation API. Visar dagens och morgondagens väderprognos. ",
-    "retrogames_description":"Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe",
-    "swedishfika_description":"Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe och postnords API",
-    "newsletter_description":"Skolprojekt: Vi skapade en sida där man som kund kan skapa nyhetsbrev, eller man som prenumerant kan signa upp till att prenumerera på kunders skapade nyhetsbrev.",
-    "todo_description":"Skolprojekt: Digital Todo-lista. ",
-    "imagesearch_description":"Skolprojekt: Bildsökmotor. Inlogg via auth0 för att få tillgång till att söka. Du kan sedan spara dina favoritbilder på din sida.",
-    "tumbleweed_description":"Fritidsprojekt (Under utveckling): Pick the Tumbleweed är ett roligt och utmanande spel där du måste fånga så många tumbleweeds som möjligt innan tiden tar slut! Ju fler du fångar, desto snabbare rullar de in. Kan du slå ditt highscore och hålla spelet vid liv?"
+    "matrix_description": "Skolprojekt: En digital telefonbok med matrix-tema.",
+    "väder_description": "Skolprojekt: Väderleks-app. Användning av WeatherBits API och GeoLocation API. Visar dagens och morgondagens väderprognos. ",
+    "retrogames_description": "Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe",
+    "swedishfika_description": "Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe och postnords API",
+    "newsletter_description": "Skolprojekt: Vi skapade en sida där man som kund kan skapa nyhetsbrev, eller man som prenumerant kan signa upp till att prenumerera på kunders skapade nyhetsbrev.",
+    "todo_description": "Skolprojekt: Digital Todo-lista. ",
+    "imagesearch_description": "Skolprojekt: Bildsökmotor. Inlogg via auth0 för att få tillgång till att söka. Du kan sedan spara dina favoritbilder på din sida.",
+    "tumbleweed_description": " Pick the Tumbleweed är ett roligt och utmanande spel där du måste fånga så många tumbleweeds som möjligt innan tiden tar slut! Ju fler du fångar, desto snabbare rullar de in. Kan du slå ditt highscore och hålla spelet vid liv?"
   },
   "contact": {
     "heading": "Kontakt",
@@ -47,5 +47,5 @@
     "contact": "KONTAKT"
   },
 
-   "click_me": "Klicka?"
+  "play_me": "Ange ditt namn och klicka \"Start Game\" för att spela spelet."
 }

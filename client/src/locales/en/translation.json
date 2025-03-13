@@ -25,6 +25,7 @@
     "swedishfika_description": "School project: E-commerce site with a Swedish fika theme. Integrated with Stripe and PostNord's API.",
     "newsletter_description": "School project: We created a platform where customers can create newsletters, and subscribers can sign up to receive newsletters created by customers.",
     "todo_description": "School project: Digital to-do list.",
+    "tumbleweed_description": " Pick the Tumbleweed is a fun and challenging game where you must catch as many tumbleweeds as possible before time runs out! The more you catch, the faster they roll in. Can you beat your high score and keep the game alive?",
     "imagesearch_description": "School project: Image search engine. Login via Auth0 is required to access search functionality. Users can save their favorite images on their personal page."
 
   },
@@ -45,5 +46,5 @@
     "projects": "MY PROJECTS",
     "contact": "CONTACT"
   },
-   "click_me": "Try me?"
+   "play_me": "Enter your name and click \"Start Game\" to play the game."
 }

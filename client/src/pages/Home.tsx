@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   PageContainer,
   TwoColumnLayout,
@@ -10,48 +9,20 @@ import {
 } from "../styledComponents/components/Layout/StyledLayout";
 
 import { MeImage, Pictures } from "../styledComponents/Images";
-import { CustomButton, PrimaryButton } from "../styledComponents/Button";
+import { CustomButton } from "../styledComponents/Button";
 import { Projects } from "../components/Projects";
 import { Contact } from "../components/Contact";
-import { Arrow } from "../components/animations/Arrow";
 import { useDeviceType } from "../hooks/useDevice";
 import { useTranslation } from "react-i18next";
-import { BouncingIcons } from "../components/animations/BouncingIcons";
-import { DragAndDropIcons } from "../components/animations/DragAndDropIcons";
 
-
-const blurVariants = {
-  hidden: { opacity: 0, filter: "blur(10px)" },
-  visible: { opacity: 1, filter: "blur(0px)", transition: { duration: 0.5 } },
-  exit: { opacity: 0, filter: "blur(10px)", transition: { duration: 0.5 } },
-};
-
-interface ToggleButtonProps {
-  toggleIcons: () => void;
-}
-
-export const ToggleButton: React.FC<ToggleButtonProps> = ({ toggleIcons }) => {
-  const [buttonText, setButtonText] = useState("Dansa?");
-
-  const handleClick = () => {
-    setButtonText((prev) => (prev === "Pausa?" ? "Dansa?" : "Pausa?"));
-    toggleIcons();
-  };
-
-  return (
-    <div style={{ textAlign: "center", marginTop: "10px" }}>
-      <PrimaryButton onClick={handleClick}>{buttonText}</PrimaryButton>
-    </div>
-  );
-};
-
+import { BubbleIcons } from "../components/animations/BubbleIcons";
 
 
 const AboutMe: React.FC = () => {
   const deviceType = useDeviceType();
   const { t } = useTranslation();
   const [imageSrc, setImageSrc] = useState("/images/me.png");
-  const [showFirstComponent, setShowFirstComponent] = useState(true);
+
 
   return (
     <>
@@ -63,7 +34,7 @@ const AboutMe: React.FC = () => {
         <TwoColumnLayout>
           <LeftColumn>
             <h1>{t("home.title")}</h1>
-            <h3>{t("home.subtitle")}</h3>
+
             <CustomButton>
               <a href={"mailto:ost.alinde@gmail.com"}>{t("home.contact")}</a>
             </CustomButton>
@@ -78,97 +49,64 @@ const AboutMe: React.FC = () => {
               />
             </Pictures>
           </RightColumn>
+          <section id="about-me"></section>
+        </TwoColumnLayout>
+        <TwoColumnLayout>
+          <TextSection>
+            <h1>{t("aboutMe.heading")}</h1>
+            <p>{t("aboutMe.paragraph1")}</p>
+            <p>{t("aboutMe.paragraph2")}</p>
+            <p>{t("aboutMe.paragraph3")}</p>
+          </TextSection>
+          <section id="techstack"></section>
         </TwoColumnLayout>
         <StackedLayout>
-          <LeftColumn>
-            <section id="techstack">
+          <TwoColumnLayout>
+            <LeftColumn>
               <br />
               <br />
               <TextSection>
-                {deviceType === "desktop" && <Arrow />}
                 <h2>{t("techstack.heading")}</h2>
                 <p>{t("techstack.description")}</p>
               </TextSection>
-            </section>
-          </LeftColumn>
+            </LeftColumn>
+            <br />
+            <br />
+            <br />
+            <LeftColumn>
+              <BubbleIcons />
+            </LeftColumn>
+          </TwoColumnLayout>
         </StackedLayout>
 
-        {deviceType !== "desktop" ? (
+        <br />
+        <br />
+        <br />
+        {deviceType === "desktop" && (
           <>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={showFirstComponent ? "dragDrop" : "bouncing"}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={blurVariants}
-              >
-                {showFirstComponent ? <DragAndDropIcons /> : <BouncingIcons />}
-              </motion.div>
-            </AnimatePresence>
-            <StackedLayout>
-              <br />
-              <ToggleButton
-                toggleIcons={() => setShowFirstComponent(!showFirstComponent)}
-              />
-
-              <LeftColumn>
-                <TextSection>
-                  <section id="about-me">
-                    <br />
-                    <br />
-                  </section>
-                  <h1>{t("aboutMe.heading")}</h1>
-                  <p>{t("aboutMe.paragraph1")}</p>
-                  <p>{t("aboutMe.paragraph2")}</p>
-                  <p>{t("aboutMe.paragraph3")}</p>
-                  <p>{t("aboutMe.paragraph4")}</p>
-                </TextSection>
-              </LeftColumn>
-            </StackedLayout>
+            <embed
+              src="https://tumbleweed-game.web.app"
+              style={{
+                width: "700px",
+                height: "auto",
+                minHeight: "500px",
+                maxHeight: "80vh",
+                borderRadius: "50px",
+              }}
+            />
+            <>
+              <div style={{ width: "500px" }}>
+                <br />
+                <i>{t("play_me")}</i> <br /><br />
+                <i>{t("projects.tumbleweed_description")}</i>
+              </div>
+            </>
           </>
-        ) : (
-          
-          <TwoColumnLayout>
-            <LeftColumn>
-              <TextSection>
-                <section id="about-me">
-                  <br />
-                  <br />
-                </section>
-                <h1>{t("aboutMe.heading")}</h1>
-                <p>{t("aboutMe.paragraph1")}</p>
-                <p>{t("aboutMe.paragraph2")}</p>
-                <p>{t("aboutMe.paragraph3")}</p>
-              </TextSection>
-            </LeftColumn>
-            <RightColumn style={{marginLeft: "100px"}}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={showFirstComponent ? "dragDrop" : "bouncing"}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={blurVariants}
-                >
-                  {showFirstComponent ? (
-                    <DragAndDropIcons />
-                  ) : (
-                    <BouncingIcons />
-                  )}
-                </motion.div>
-              </AnimatePresence>
-
-              <br />
-              <ToggleButton
-                toggleIcons={() => setShowFirstComponent(!showFirstComponent)}
-              />
-            </RightColumn>
-          </TwoColumnLayout>
         )}
       </PageContainer>
 
       <section id="projects">
+        <br />
         <br />
         <br />
         <h1>{t("projects.heading")}</h1>
