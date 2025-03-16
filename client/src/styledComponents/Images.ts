@@ -12,9 +12,9 @@ export const Pictures = styled.div`
 `;
 
 export const MeImage = styled.img`
-  width: 370px;
+  width: 270px;
   max-width: 100%;
   height: auto;
   margin: 10px;
-  border-radius: 160px;
+  // border-radius: 160px;
 `;

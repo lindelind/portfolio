@@ -36,9 +36,9 @@ export const MobileMenu = ({
       <MobileMenuButton icon={<MenuOutlined />} onClick={onToggle} />
       <StyledDrawer
         placement="right"
+      
         open={isOpen}
         onClose={onToggle}
-        style={{ padding: "20px" }}
       >
         <Menu
           mode="inline"
@@ -73,14 +73,14 @@ const MobileMenuButton = styled(Button)`
 const StyledDrawer = styled(Drawer)`
   .ant-drawer-body {
     background-color: black !important;
-    color: white;
+   
   }
 
-  .ant-menu-item {
+  .ant-menu-item, li, ul, a {
   font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: bold;
-    // padding: 12px 20px; /* Justera avstånd */
+    padding: 12px 20px; /* Justera avstånd */
     transition: all 0.3s ease;
     background-color: black;
     color: white;

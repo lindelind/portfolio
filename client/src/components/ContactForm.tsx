@@ -1,48 +1,110 @@
 import { useState } from "react";
-import styled from "styled-components";
-import { PrimaryButton } from "../styledComponents/Button";
+import styled, { keyframes } from "styled-components";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { message, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+const FormContainer = styled.div`
+  max-width: 480px;
+  margin: 40px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: ${fadeIn} 0.5s ease-out;
+ background-color: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 20px 0 rgba(140, 137, 137, 0.1);
+`;
+
+const Title = styled.h1`
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+`;
+
 const Input = styled.input`
-  font-family: "Poppins";
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #ddd;
-  border-radius: 5px;
+  padding: 14px;
+  margin: 12px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
   font-size: 16px;
-  transition: 0.3s;
+  background: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 
   &:focus {
     border-color: #6e8efb;
+    background: white;
+    box-shadow: 0 0 10px rgba(110, 142, 251, 0.4);
     outline: none;
-    box-shadow: 0 0 8px rgba(110, 142, 251, 0.6);
   }
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #ddd;
-  border-radius: 5px;
+  padding: 14px;
+  margin: 12px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
   font-size: 16px;
-  transition: 0.3s;
-  font-family: "Poppins";
+  background: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+  min-height: 140px;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 
   &:focus {
     border-color: #6e8efb;
+    background: white;
+    box-shadow: 0 0 10px rgba(110, 142, 251, 0.4);
     outline: none;
-    box-shadow: 0 0 8px rgba(110, 142, 251, 0.6);
+  }
+`;
+
+const SubmitButton = styled.button`
+  width: 100%;
+  padding: 14px;
+  background:rgb(86, 86, 88);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+  transition:
+    background 0.3s ease-in-out,
+    transform 0.2s;
+
+  &:hover {
+    background:rgb(91, 92, 94);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    background: #bbb;
+    cursor: not-allowed;
+    transform: none;
   }
 `;
 
 message.config({
   top: 100,
 });
+
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -67,15 +129,12 @@ export const ContactForm = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axios.post(`${API_URL}/send-email`,
-         formData,{
-        headers: {
-          "Content-Type": "application/json",
-        },
+      await axios.post(`${API_URL}/send-email`, formData, {
+        headers: { "Content-Type": "application/json" },
       });
       message.success(t("contact.message_sent"));
       setFormData({ name: "", email: "", message: "" });
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error sending message:", error);
       message.error(t("contact.message_failed"));
     } finally {
@@ -83,14 +142,13 @@ export const ContactForm = () => {
     }
   };
 
-
   const antIcon = (
     <LoadingOutlined style={{ fontSize: 24, color: "white" }} spin />
   );
 
   return (
-    <>
-      <h1>{t("contact.title")}</h1>
+    <FormContainer>
+      <Title>{t("contact.title")}</Title>
       <form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -115,11 +173,10 @@ export const ContactForm = () => {
           onChange={handleChange}
           required
         />
-        <PrimaryButton style={{ width: "80%" }} disabled={isLoading}>
+        <SubmitButton type="submit" disabled={isLoading}>
           {isLoading ? <Spin indicator={antIcon} /> : t("contact.sendMessage")}
-        </PrimaryButton>
+        </SubmitButton>
       </form>
-    </>
+    </FormContainer>
   );
 };
-

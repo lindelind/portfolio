@@ -1,11 +1,6 @@
 import { ProjectBanner } from "../styledComponents/ProjectBanner";
 import { Tags } from "../styledComponents/Tags";
 import { Title } from "../styledComponents/Title";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay} from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import { useDeviceType } from "../hooks/useDevice";
 import { PrimaryButton, SecondaryButton } from "../styledComponents/Button";
 import { Modal } from "antd";
 import { useState } from "react";
@@ -13,16 +8,16 @@ import { useTranslation } from "react-i18next";
 import { Description } from "../styledComponents/Description";
 import { styled } from "styled-components";
 
-
 const StyledModal = styled(Modal)`
   .ant-modal-content {
-    background-color: #1e1e1e; /* Mörk bakgrund */
-    color: white; /* Vit text */
+    background-color: #1e1e1e;
+    color: white;
     border-radius: 10px;
+    
   }
 
   .ant-modal-header {
-    background-color: #1e1e1e; /* Mörkare header */
+    background-color: #1e1e1e;
     color: white;
     border-bottom: none;
   }
@@ -38,6 +33,18 @@ const StyledModal = styled(Modal)`
 `;
 
 
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  margin: 30px;
+  backdrop-filter: blur(10px);
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
 
 type Project = {
   image: string;
@@ -47,11 +54,31 @@ type Project = {
   url?: string;
 };
 
- 
-export const Projects = () => {
+export const ProjectsMore = () => {
   const { t } = useTranslation();
 
   const projects: Project[] = [
+    {
+      image: "/images/hittavet-pic.png",
+      title: "HittaVet",
+      tags: ["React", "Typescript", "Node", "Firebase"],
+      description: t("projects.hittavet_description"),
+      url: "https://hittavet-c3cf4.web.app",
+    },
+    {
+      image: "/images/tumbleweed.png",
+      title: "Pick the Tumbleweed",
+      tags: ["React", "Firebase", "CSS"],
+      description: t("projects.tumbleweed_description"),
+      url: "https://tumbleweed-game.web.app",
+    },
+    {
+      image: "/images/todo.png",
+      title: "Todo-app",
+      tags: ["React", "CSS"],
+      description: t("projects.todo_description"),
+      url: "https://alinde-ost-todo.web.app",
+    },
     {
       image: "/images/matrix.png",
       title: "Matrix",
@@ -66,13 +93,7 @@ export const Projects = () => {
       description: t("projects.väder_description"),
       url: "https://searchweathertoday.netlify.app",
     },
-    {
-      image: "/images/tumbleweed.png",
-      title: "Pick the Tumbleweed",
-      tags: ["React", "Firebase", "CSS"],
-      description: t("projects.tumbleweed_description"),
-      url: "https://tumbleweed-game.web.app"
-    },
+
     {
       image: "/images/retrogames2.png",
       title: "Retro Games",
@@ -97,49 +118,10 @@ export const Projects = () => {
       tags: ["React", "Auth0"],
       description: t("projects.imagesearch_description"),
     },
-
-    {
-      image: "/images/todo.png",
-      title: "Todo-app",
-      tags: ["React", "CSS"],
-      description: t("projects.todo_description"),
-      url: "https://alinde-ost-todo.web.app",
-    },
-    {
-      image: "/images/hittavet-pic.png",
-      title: "HittaVet",
-      tags: ["React", "Typescript", "Node", "Firebase"],
-      description: t("projects.hittavet_description"),
-      url: "https://hittavet-c3cf4.web.app",
-    },
   ];
 
   const [open, setOpen] = useState(false);
   const [modalContent, setModalContent] = useState<Project | null>(null);
-
-  const deviceType = useDeviceType();
-  
-
-  const swiperConfig = {
-    spaceBetween: 13,
-    speed: 15000,
-    autoplay: {
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-      delay: 0,
-    },
-    loop: true,
-
-    slidesPerView:
-      deviceType === "mobile" || deviceType === "tablet"
-        ? 1
-        : deviceType === "laptop"
-          ? 2
-          : deviceType === "desktop"
-            ? 3
-            : 4,
-    modules: [Autoplay],
-  };
 
   const showModal = (project: Project) => {
     setModalContent(project);
@@ -151,38 +133,32 @@ export const Projects = () => {
     setModalContent(null);
   };
 
-  
-
   return (
     <>
-      <Swiper {...swiperConfig}>
+      <ProjectsGrid>
         {projects.map((project, index) => (
-          <SwiperSlide key={`key-${project.title}-${index}`}>
-            <ProjectBanner $image={project.image}>
-              <Title title={project.title} />
-              <Tags tags={project.tags} />
-              <br />
-
-              {project?.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <SecondaryButton>Live</SecondaryButton>
-                </a>
-              )}
-              <br />
-              <PrimaryButton onClick={() => showModal(project)}>
-                {t("projects.read_more")}
-              </PrimaryButton>
-            </ProjectBanner>
-          </SwiperSlide>
+          <ProjectBanner
+            key={`key-${project.title}-${index}`}
+            $image={project.image}
+          >
+            <Title title={project.title} />
+            <Tags tags={project.tags} />
+            <br />
+            {project?.url && (
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <SecondaryButton>Live</SecondaryButton>
+              </a>
+            )}
+            <br />
+            <PrimaryButton onClick={() => showModal(project)}>
+              {t("projects.read_more")}
+            </PrimaryButton>
+          </ProjectBanner>
         ))}
-      </Swiper>
+      </ProjectsGrid>
 
       <StyledModal
-        title={modalContent ? modalContent.title : ""}
+        title={modalContent?.title || ""}
         open={open}
         onCancel={handleCancel}
         footer={null}
@@ -199,4 +175,4 @@ export const Projects = () => {
       </StyledModal>
     </>
   );
-    };
+};

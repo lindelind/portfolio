@@ -23,7 +23,7 @@ export const BubbleIcons = () => {
             className="ball bubble floating"
             style={{ animationDelay: `${index * 0.5}s` }}
           >
-            <img src={icon} alt="Bubble Icon" className="bubble-img" />
+            <img src={icon} alt="Bubble Icon" className="bubble-svg" />
           </figure>
         
       ))}

@@ -5,10 +5,12 @@ body, html {
     padding: 0;
     font-family: 'Poppins';
     font-weight: lighter;
-    background-color: black;
+    background-color: rgb(5, 5, 5);
     color: rgb(240, 233, 233);
+    z-index: 1;
   
     overflow-x: hidden;
+   
     
     
 }
@@ -18,9 +20,10 @@ h1 {
   // font-size: 30px;
 }
 .ball.bubble {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   animation: floating 3s ease-in-out infinite;
+  
 
 }
 
@@ -28,7 +31,9 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px; /* Justera mellanrummet mellan bubblorna */
+  gap: 10px; 
+  margin-top: 40px;
+
 
 }
 
@@ -36,6 +41,7 @@ h1 {
   .ball.bubble {
     width: 50px;
     height: 50px;
+
   }
 
   p{
@@ -44,6 +50,7 @@ h1 {
 
   .bubble-container {
     gap: 5px;
+   margin-top: 40px;
   }
 }
 
@@ -78,3 +85,69 @@ h1 {
   background: rgb(231, 125, 49);
   border-radius: 10px;
 }
+
+
+//--------------------
+.floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0; 
+  pointer-events: none; 
+}
+
+.bubble-svg {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(182, 231, 237, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
+  animation: bubbleAppear 2s ease-in-out forwards, floatAround 10s infinite ease-in-out alternate;
+}
+
+@media screen and (max-width: 768px) {
+  .bubble-svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.floating-image {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+@keyframes bubbleAppear {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes floatAround {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  100% {
+    transform: translateY(10px) translateX(-5px);
+  }
+}
+

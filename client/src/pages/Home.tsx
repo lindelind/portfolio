@@ -1,31 +1,83 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   PageContainer,
   TwoColumnLayout,
   LeftColumn,
   RightColumn,
-  StackedLayout,
+
   TextSection,
+  StyledH2,
 } from "../styledComponents/components/Layout/StyledLayout";
 
 import { MeImage, Pictures } from "../styledComponents/Images";
-import { CustomButton } from "../styledComponents/Button";
-import { Projects } from "../components/Projects";
-import { Contact } from "../components/Contact";
 import { useDeviceType } from "../hooks/useDevice";
 import { useTranslation } from "react-i18next";
 
 import { BubbleIcons } from "../components/animations/BubbleIcons";
+import FloatingBackground from "../styledComponents/FloatingBackground";
+import { ProjectsMore } from "../components/ProjectsMore";
+import { ContactForm } from "../components/ContactForm";
+import styled from "styled-components";
 
+
+export const FadeSection = styled.section`
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    
+  }
+
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+`;
 
 const AboutMe: React.FC = () => {
   const deviceType = useDeviceType();
   const { t } = useTranslation();
   const [imageSrc, setImageSrc] = useState("/images/me.png");
+  const fadeRefs = useRef<(HTMLElement | null)[]>([]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    fadeRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      fadeRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
 
   return (
     <>
+      {deviceType === "desktop" && <FloatingBackground />}
+
       <PageContainer>
         <section id="home">
           <br />
@@ -34,10 +86,7 @@ const AboutMe: React.FC = () => {
         <TwoColumnLayout>
           <LeftColumn>
             <h1>{t("home.title")}</h1>
-
-            <CustomButton>
-              <a href={"mailto:ost.alinde@gmail.com"}>{t("home.contact")}</a>
-            </CustomButton>
+            <StyledH2>Fullstackutvecklare</StyledH2>
           </LeftColumn>
           <RightColumn>
             <Pictures>
@@ -51,73 +100,84 @@ const AboutMe: React.FC = () => {
           </RightColumn>
           <section id="about-me"></section>
         </TwoColumnLayout>
-        <TwoColumnLayout>
-          <TextSection>
-            <h1>{t("aboutMe.heading")}</h1>
-            <p>{t("aboutMe.paragraph1")}</p>
-            <p>{t("aboutMe.paragraph2")}</p>
-            <p>{t("aboutMe.paragraph3")}</p>
-          </TextSection>
-          <section id="techstack"></section>
-        </TwoColumnLayout>
-        <StackedLayout>
+        <FadeSection ref={(el) => fadeRefs.current.push(el)}>
           <TwoColumnLayout>
-            <LeftColumn>
-              <br />
-              <br />
-              <TextSection>
-                <h2>{t("techstack.heading")}</h2>
-                <p>{t("techstack.description")}</p>
-              </TextSection>
-            </LeftColumn>
-            <br />
-            <br />
-            <br />
-            <LeftColumn>
-              <BubbleIcons />
-            </LeftColumn>
+            <TextSection>
+              <h2>{t("aboutMe.heading")}</h2>
+              <p>{t("aboutMe.paragraph1")}</p>
+              <p>{t("aboutMe.paragraph2")}</p>
+              <p>{t("aboutMe.paragraph3")}</p>
+            </TextSection>
           </TwoColumnLayout>
-        </StackedLayout>
+        </FadeSection>
+        <section id="techstack"></section>
+        <FadeSection ref={(el) => fadeRefs.current.push(el)}>
+          <TwoColumnLayout>
+            <TextSection>
+              <h2>{t("techstack.heading")}</h2>
+              <p>{t("techstack.description")}</p>
+            </TextSection>
+          </TwoColumnLayout>
+        </FadeSection>
+        <FadeSection ref={(el) => fadeRefs.current.push(el)}>
+          <LeftColumn>{deviceType != "desktop" && <BubbleIcons />}</LeftColumn>
+        </FadeSection>
 
-        <br />
-        <br />
-        <br />
         {deviceType === "desktop" && (
           <>
-            <embed
-              src="https://tumbleweed-game.web.app"
-              style={{
-                width: "700px",
-                height: "auto",
-                minHeight: "500px",
-                maxHeight: "80vh",
-                borderRadius: "50px",
-              }}
-            />
             <>
-              <div style={{ width: "500px" }}>
+              <section id="projects" style={{ margin: 0 }}>
                 <br />
-                <i>{t("play_me")}</i> <br /><br />
-                <i>{t("projects.tumbleweed_description")}</i>
-              </div>
+                <br />
+              </section>
+              <h1>{t("projects.heading")}</h1>
+            </>
+            <>
+              {/* <FadeSection ref={(el) => fadeRefs.current.push(el)}>
+                <embed
+                  src="https://tumbleweed-game.web.app"
+                  style={{
+                    width: "700px",
+                    height: "auto",
+                    minHeight: "500px",
+                    maxHeight: "80vh",
+                    borderRadius: "50px",
+                    background: "transparent",
+                    opacity: 0.9,
+                  }}
+                />
+              </FadeSection> */}
+
+              {/* <>
+                <div style={{ width: "500px" }}>
+                  <br />
+                  <i>{t("play_me")}</i> <br />
+                  <br />
+                  <i>{t("projects.tumbleweed_description")}</i>
+                </div>
+              </> */}
             </>
           </>
         )}
       </PageContainer>
 
-      <section id="projects">
-        <br />
-        <br />
-        <br />
-        <h1>{t("projects.heading")}</h1>
-        <Projects />
-      </section>
+      {deviceType != "desktop" && (
+        <>
+          <section id="projects" style={{ margin: 0 }}>
+            <br />
+            <br />
+          </section>
+          <h1>{t("projects.heading")}</h1>
+        </>
+      )}
 
-      <PageContainer>
+      <ProjectsMore />
+
+      <FadeSection ref={(el) => fadeRefs.current.push(el)}>
         <section id="contact">
-          <Contact />
+          <ContactForm />
         </section>
-      </PageContainer>
+      </FadeSection>
     </>
   );
 };
