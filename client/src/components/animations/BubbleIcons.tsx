@@ -18,14 +18,13 @@ export const BubbleIcons = () => {
   return (
     <div className="bubble-container">
       {icons.map((icon, index) => (
-       
-          <figure
-            className="ball bubble floating"
-            style={{ animationDelay: `${index * 0.5}s` }}
-          >
-            <img src={icon} alt="Bubble Icon" className="bubble-svg" />
-          </figure>
-        
+        <figure
+          key={`bubble-icon-${index}`}
+          className="ball bubble floating"
+          // style={{ animationDelay: `${index * 0.5}s` }}
+        >
+          <img src={icon} alt="Bubble Icon" className="bubble-svg" />
+        </figure>
       ))}
     </div>
   );

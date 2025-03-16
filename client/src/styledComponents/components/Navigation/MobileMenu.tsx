@@ -85,20 +85,21 @@ const StyledDrawer = styled(Drawer)`
   }
 
   .ant-drawer-content {
-    background: rgba(0, 0, 0, 0.7) !important;
+    background: rgba(0, 0, 0, 0.8) !important;
     backdrop-filter: blur(12px);
     color: white !important;
   }
 
   .ant-drawer-body {
     backdrop-filter: blur(12px);
-    background: transparent;
+    background: rgba(0, 0, 0, 0.7) !important;
     padding-top: 30px;
     color: white !important;
   }
 
   .ant-drawer-header {
     border-bottom: none;
+    background: rgba(0, 0, 0, 0.7) !important;
 
     svg {
       color: white !important;
@@ -112,8 +113,6 @@ const StyledDrawer = styled(Drawer)`
     font-family: "Poppins", sans-serif;
     font-size: 18px;
     margin:0;
-
-    
     transition: all 0.3s ease;
     background: transparent !important;
     color: white !important;

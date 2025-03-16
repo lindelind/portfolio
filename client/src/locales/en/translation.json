@@ -6,7 +6,7 @@
   },
   "techstack": {
     "heading": "Tech Stack",
-    "description": "I have strong experience with React, TypeScript, Node.js, and Firebase to build both web and mobile applications. I use these tools to create responsive interfaces, keep the code clean and efficient, and handle real-time data. I also have experience working with both SQL and NoSQL databases such as MySQL, MongoDB, and Firebase Firestore. In addition, I've worked with Docker for containerization and built websites and plugins with PHP and WordPress. I'm also interested in AI development and have experimented with OpenAI and used the PromptLayer tool. For me, it's both fun and important to explore new tools and languages to have a wider toolbox to choose from when building my projects. That's why I'm currently learning more about C# and .NET."
+    "description": "I have experience building web and mobile applications with, but not limited to, React, TypeScript, Node.js, and the Firebase platform. My toolbox also includes both SQL and NoSQL databases (MySQL, MongoDB, Firestore), and I have built websites using PHP and WordPress. For me, development is about matching the right tool to the right task – whether that means diving deeper into technologies I already master or exploring something entirely new. Right now, I’m expanding my knowledge of C# and .NET and how to use it as a backend for React applications."
   },
   "aboutMe": {
   "heading": "Who am I?",

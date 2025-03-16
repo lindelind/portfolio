@@ -70,7 +70,11 @@ export const TextSection = styled.div`
   background: linear-gradient(135deg, rgb(30, 30, 29), transparent);
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 20px 0 rgba(140, 137, 137, 0.1);
-  @media (max-width: 1200px) {
+  
+  h2, h3{
+
+  color: rgb(177, 134, 231);
+  font-weight: 700;
   }
 `;
 

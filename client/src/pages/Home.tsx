@@ -24,8 +24,8 @@ export const FadeSection = styled.section`
   opacity: 0;
   transform: translateY(40px);
   transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
 
   &.visible {
     opacity: 1;
@@ -105,13 +105,14 @@ const AboutMe: React.FC = () => {
             <TextSection>
               <h2>{t("aboutMe.heading")}</h2>
               <p>{t("aboutMe.paragraph1")}</p>
-              <h2>{t("aboutMe.heading2")}</h2>
+              <h3>{t("aboutMe.heading2")}</h3>
               <p>{t("aboutMe.paragraph2")}</p>
               <p>{t("aboutMe.paragraph3")}</p>
             </TextSection>
           </TwoColumnLayout>
         </FadeSection>
         <section id="techstack"></section>
+        <br />
         <FadeSection ref={(el) => fadeRefs.current.push(el)}>
           <TwoColumnLayout>
             <TextSection>
@@ -151,6 +152,8 @@ const AboutMe: React.FC = () => {
 
       <FadeSection ref={(el) => fadeRefs.current.push(el)}>
         <section id="contact">
+          <br />
+          <br />
           <ContactForm />
         </section>
       </FadeSection>
