@@ -87,20 +87,22 @@ const StyledDrawer = styled(Drawer)`
   .ant-drawer-content {
     background: rgba(0, 0, 0, 0.7) !important;
     backdrop-filter: blur(12px);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
     color: white !important;
   }
 
   .ant-drawer-body {
+    backdrop-filter: blur(12px);
     background: transparent;
     padding-top: 30px;
     color: white !important;
   }
 
   .ant-drawer-header {
-    background: transparent !important;
     border-bottom: none;
-  
+
+    svg {
+      color: white !important;
+    }
   }
 
   .ant-menu-item,
@@ -109,14 +111,15 @@ const StyledDrawer = styled(Drawer)`
   a {
     font-family: "Poppins", sans-serif;
     font-size: 18px;
+    margin:0;
+
     
-    padding: 15px 20px;
     transition: all 0.3s ease;
     background: transparent !important;
     color: white !important;
 
     &:hover {
-      color:rgb(39, 39, 41);
+      color: rgb(39, 39, 41);
       background: rgba(255, 255, 255, 0.05) !important;
     }
   }
