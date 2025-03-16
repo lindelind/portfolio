@@ -10,24 +10,24 @@
   },
   "aboutMe": {
   "heading": "Who am I?",
+  "heading2": "My experience and background",
   "paragraph1": "I’m a full-stack developer on my way into the workforce, with experience in both frontend and backend development. I love combining creativity with problem-solving to build solutions that work smoothly and look great. For me, clear code structure and a user-friendly experience go hand in hand – whether it’s ensuring the app is easy to use or making the code easy to navigate.",
-  "paragraph2": "During my education and internship, I’ve worked on several projects where I’ve built functional solutions using technologies like React, React Native, TypeScript, Node.js, PHP, Firebase, and SQL/NoSQL databases. I’ve also worked on API integrations and improved user flows in mobile apps. More details can be found under MY PROJECTS.",
+  "paragraph2": "During my education and internship, I’ve worked on several projects where I’ve built functional solutions using technologies like React, React Native, TypeScript, Node.js, PHP, Firebase, and SQL/NoSQL databases. I’ve also worked on API integrations and improved user flows in mobile apps.",
   "paragraph3": "My background in customer service has equipped me with valuable soft skills, like the ability to communicate effectively, listen to and understand user needs, and collaborate well in teams. I’m good at understanding what’s required to create a positive user experience and can quickly adapt to new requirements and challenges.",
   "paragraph4": "I’m excited to bring both my technical skills and customer service experience to a developer role, where I can contribute to building user-friendly and technically sustainable solutions."
 },
   "projects": {
     "heading": "My Projects",
     "read_more": "Read more",
-    "hittavet_description": "Thesis project. Built the frontend in React, backend in Node. Used Firebase for database and authentication. Implemented Google's Places API and a UI library (Ant Design).",
+    "hittavet_description": "Thesis project. HittaVet is a user-friendly app that makes it easy to find veterinary clinics based on name, city, county, or your current location. The app shows clinics near you and prioritizes those that are open, so you always find help when you need it.",
     "matrix_description": "School project: A digital phonebook with a Matrix theme.",
     "väder_description": "School project: Weather app. Utilized WeatherBit's API and the GeoLocation API. Displays weather forecasts for today and tomorrow.",
     "retrogames_description": "School project: E-commerce site with a retro gaming theme. Integrated with Stripe.",
     "swedishfika_description": "School project: E-commerce site with a Swedish fika theme. Integrated with Stripe and PostNord's API.",
     "newsletter_description": "School project: We created a platform where customers can create newsletters, and subscribers can sign up to receive newsletters created by customers.",
-    "todo_description": "School project: Digital to-do list.",
+    "todo_description": "A simple todo app to create, check off, and delete tasks. No fuss – just get it done and move on.",
     "tumbleweed_description": " Pick the Tumbleweed is a fun and challenging game where you must catch as many tumbleweeds as possible before time runs out! The more you catch, the faster they roll in. Can you beat your high score and keep the game alive?",
     "imagesearch_description": "School project: Image search engine. Login via Auth0 is required to access search functionality. Users can save their favorite images on their personal page."
-
   },
   "contact": {
     "heading": "Contact",

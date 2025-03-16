@@ -10,6 +10,7 @@
   },
   "aboutMe": {
     "heading": "Vem är jag?",
+    "heading2": "Min erfarenhet och bakgrund",
     "paragraph1": "Jag är en fullstackutvecklare på väg ut i arbetslivet, med erfarenhet av både frontend och backendutveckling. Jag älskar att kombinera kreativitet med problemlösning för att bygga lösningar som både fungerar smidigt och ser bra ut. För mig går en tydlig kodstruktur och en användarvänlig upplevelse hand i hand – oavsett om det handlar om att säkerställa att appen är lätt att använda eller att göra koden lätt att navigera.",
     "paragraph2": "Under min utbildning och praktik har jag arbetat med flera projekt där jag byggt funktionella lösningar med teknologier som React, React Native, TypeScript, Node.js, PHP, Firebase och SQL/NoSQL-databaser. Jag har även arbetat med API-integrationer och förbättrat användarflöden i mobilappar.  Mer information finns under MINA PROJEKT.",
     "paragraph3": "Min bakgrund inom kundservice har gett mig värdefulla soft skills, som förmågan att kommunicera effektivt, lyssna på och förstå användarbehov samt att samarbeta bra i team. Jag är bra på att förstå vad som krävs för att skapa en positiv användarupplevelse och kan snabbt anpassa mig efter nya krav och utmaningar.",
@@ -18,13 +19,13 @@
   "projects": {
     "heading": "Mina Projekt",
     "read_more": "Läs mer",
-    "hittavet_description": "Examensarbete. Byggde frontend i React, backend i Node. Firebase för databas och authentisering. Använde Googles Places Api samt ett UI bibliotek(Ant design)",
+    "hittavet_description": "Examensarbete. HittaVet är en användarvänlig app som gör det enkelt att hitta veterinärkliniker baserat på namn, stad, län eller din nuvarande plats. Appen visar kliniker nära dig och prioriterar öppna kliniker, så att du alltid hittar hjälp när du behöver det.",
     "matrix_description": "Skolprojekt: En digital telefonbok med matrix-tema.",
     "väder_description": "Skolprojekt: Väderleks-app. Användning av WeatherBits API och GeoLocation API. Visar dagens och morgondagens väderprognos. ",
     "retrogames_description": "Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe",
     "swedishfika_description": "Skolprojekt: E-handelssida med retrospels-tema. Integration med Stripe och postnords API",
     "newsletter_description": "Skolprojekt: Vi skapade en sida där man som kund kan skapa nyhetsbrev, eller man som prenumerant kan signa upp till att prenumerera på kunders skapade nyhetsbrev.",
-    "todo_description": "Skolprojekt: Digital Todo-lista. ",
+    "todo_description": "En enkel todo-app för att skapa, bocka av och ta bort uppgifter. Inga krusiduller – bara göra klart och gå vidare.",
     "imagesearch_description": "Skolprojekt: Bildsökmotor. Inlogg via auth0 för att få tillgång till att söka. Du kan sedan spara dina favoritbilder på din sida.",
     "tumbleweed_description": " Pick the Tumbleweed är ett roligt och utmanande spel där du måste fånga så många tumbleweeds som möjligt innan tiden tar slut! Ju fler du fångar, desto snabbare rullar de in. Kan du slå ditt highscore och hålla spelet vid liv?"
   },
