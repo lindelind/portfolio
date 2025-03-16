@@ -105,6 +105,7 @@ const AboutMe: React.FC = () => {
             <TextSection>
               <h2>{t("aboutMe.heading")}</h2>
               <p>{t("aboutMe.paragraph1")}</p>
+              <h2>{t("aboutMe.heading2")}</h2>
               <p>{t("aboutMe.paragraph2")}</p>
               <p>{t("aboutMe.paragraph3")}</p>
             </TextSection>
@@ -131,31 +132,6 @@ const AboutMe: React.FC = () => {
                 <br />
               </section>
               <h1>{t("projects.heading")}</h1>
-            </>
-            <>
-              {/* <FadeSection ref={(el) => fadeRefs.current.push(el)}>
-                <embed
-                  src="https://tumbleweed-game.web.app"
-                  style={{
-                    width: "700px",
-                    height: "auto",
-                    minHeight: "500px",
-                    maxHeight: "80vh",
-                    borderRadius: "50px",
-                    background: "transparent",
-                    opacity: 0.9,
-                  }}
-                />
-              </FadeSection> */}
-
-              {/* <>
-                <div style={{ width: "500px" }}>
-                  <br />
-                  <i>{t("play_me")}</i> <br />
-                  <br />
-                  <i>{t("projects.tumbleweed_description")}</i>
-                </div>
-              </> */}
             </>
           </>
         )}
