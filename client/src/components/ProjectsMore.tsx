@@ -144,15 +144,17 @@ export const ProjectsMore = () => {
             <Title title={project.title} />
             <Tags tags={project.tags} />
             <br />
-            {project?.url && (
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                <SecondaryButton>Live</SecondaryButton>
-              </a>
-            )}
-            <br />
-            <PrimaryButton onClick={() => showModal(project)}>
-              {t("projects.read_more")}
-            </PrimaryButton>
+            <div className="btns" style={{ display: "flex", justifyContent: "center" }}>
+              {project?.url && (
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                  <SecondaryButton>Live</SecondaryButton>
+                </a>
+              )}
+              <br />
+              <PrimaryButton onClick={() => showModal(project)}>
+                {t("projects.read_more")}
+              </PrimaryButton>
+            </div>
           </ProjectBanner>
         ))}
       </ProjectsGrid>

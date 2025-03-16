@@ -1,22 +1,24 @@
 import styled from "styled-components";
 
 export const PrimaryButton = styled.button`
-  background-color:rgb(231, 125, 49);
+  background-color: rgb(231, 125, 49);
   color: white;
-  
-  padding: 10px 20px;
+
+  padding: 9px 19px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
   cursor: pointer;
 
   a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
   }
 
   &:hover {
-    background-color:rgb(202, 110, 45);
+    background-color: rgb(202, 110, 45);
   }
 `;
 

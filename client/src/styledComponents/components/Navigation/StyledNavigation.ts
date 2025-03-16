@@ -7,6 +7,7 @@ export const StyledNavigation = styled.header`
   justify-content: space-between;
   background-color:rgb(0, 0, 0);
   position: fixed;
+  
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -15,25 +16,20 @@ export const StyledNavigation = styled.header`
   width: 100%;
   height: 8vh;
 
-  h1 {
-    font-family: "Poppins", sans-serif;
-    font-size: 20px;
-    color: white;
-  }
-
   nav ul {
     display: flex;
     list-style: none;
-    justify-content: center;
+    justify-content: end;
     padding: 0;
 
     li {
-      margin-left: 20px;
-      font-size: 23px;
+      margin-right: 38px;
+      font-size: 20px;
 
       a {
         text-decoration: none;
         color: white;
+        font-family: "poppins";
 
         &:hover {
           text-decoration: underline;

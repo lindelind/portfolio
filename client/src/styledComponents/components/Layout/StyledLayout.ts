@@ -75,7 +75,7 @@ export const TextSection = styled.div`
 `;
 
 export const StyledH2 = styled.h2`
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   color: white;
   text-align: center;
   letter-spacing: 2px;

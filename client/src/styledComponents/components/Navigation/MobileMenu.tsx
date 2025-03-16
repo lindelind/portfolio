@@ -35,11 +35,18 @@ export const MobileMenu = ({
     <>
       <MobileMenuButton icon={<MenuOutlined />} onClick={onToggle} />
       <StyledDrawer
-        placement="right"
-      
-        open={isOpen}
-        onClose={onToggle}
-      >
+    placement="right"
+    open={isOpen}
+    onClose={onToggle}
+    drawerStyle={{
+    background: "rgba(17, 17, 17, 0.7)",
+    backdropFilter: "blur(3px)",
+    color: "white",
+    
+  }}
+>
+
+     
         <Menu
           mode="inline"
           selectedKeys={[selectedKey]}
@@ -63,30 +70,60 @@ export const MobileMenu = ({
 const MobileMenuButton = styled(Button)`
   background: transparent;
   border: none;
-  color: white;
+  color: white !important;
   position: absolute;
-  top: 15px;
+  top: 10px;
   right: 35px;
-  font-size: 30px;
+  font-size: 20px;
 `;
 
 const StyledDrawer = styled(Drawer)`
+  .ant-drawer-mask {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(4px);
+    color: white !important;
+  }
+
+  .ant-drawer-content {
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(12px);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    color: white !important;
+  }
+
   .ant-drawer-body {
-    background-color: black !important;
-   
+    background: transparent;
+    padding-top: 30px;
+    color: white !important;
   }
 
-  .ant-menu-item, li, ul, a {
-  font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px 20px; /* Justera avstånd */
-    transition: all 0.3s ease;
-    background-color: black;
-    color: white;
-  }
-
+  .ant-drawer-header {
+    background: transparent !important;
+    border-bottom: none;
   
+  }
+
+  .ant-menu-item,
+  li,
+  ul,
+  a {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    background: transparent !important;
+    color: white !important;
+
+    &:hover {
+      color:rgb(39, 39, 41);
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+  }
+
+  .ant-menu-item::after {
+    display: none !important;
+  }
 `;
 
 export default MobileMenu;

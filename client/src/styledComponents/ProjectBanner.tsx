@@ -14,7 +14,7 @@ const StyledContainer = styled.div`
   justify-content: space-between;
   border-radius: 10px;
   box-shadow: rgba(204, 201, 201, 0.35) 0px 5px 5px;
-  width: 95%;
+  width: 90%;
   margin: 10px auto;
   position: relative;
   background: linear-gradient(135deg,rgb(30, 30, 29), transparent);
@@ -28,6 +28,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  margin: 0 auto;
 `;
 
 export const TitleWrapper = styled.div`
@@ -40,7 +41,7 @@ export const TitleWrapper = styled.div`
 
 const PeepholeIcon = styled.div`
   position: absolute;
-  top: 80%;
+  top: 75%;
   left: 50%;
   width: 60px;
   height: 60px;
@@ -138,9 +139,21 @@ const FullImage = styled.img`
   height: auto;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 `;
+import { useEffect } from "react";
 
 export const ProjectBanner = (props: ProjectBannerProps) => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -151,19 +164,25 @@ export const ProjectBanner = (props: ProjectBannerProps) => {
             <PeepImage
               src={props.$image}
               alt="Full Preview"
-              onClick={() => setModalVisible(true)}
+              onClick={() => {
+                if (!isMobile) {
+                  setModalVisible(true);
+                }
+              }}
             />
           </PeepholeIcon>
         </ContentWrapper>
       </StyledContainer>
 
-      <StyledModal
-        open={isModalVisible}
-        footer={null}
-        onCancel={() => setModalVisible(false)}
-      >
-        <FullImage src={props.$image} alt="Full Preview" />
-      </StyledModal>
+      {!isMobile && (
+        <StyledModal
+          open={isModalVisible}
+          footer={null}
+          onCancel={() => setModalVisible(false)}
+        >
+          <FullImage src={props.$image} alt="Full Preview" />
+        </StyledModal>
+      )}
     </>
   );
 };

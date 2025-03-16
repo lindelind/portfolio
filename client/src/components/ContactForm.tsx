@@ -12,14 +12,14 @@ const fadeIn = keyframes`
 `;
 
 const FormContainer = styled.div`
-  max-width: 480px;
+  max-width: 580px;
   margin: 40px;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   animation: ${fadeIn} 0.5s ease-out;
- background-color: transparent;
+  background: linear-gradient(135deg, rgb(54, 54, 53), transparent);
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 20px 0 rgba(140, 137, 137, 0.1);
 `;
