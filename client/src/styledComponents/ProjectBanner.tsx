@@ -139,21 +139,12 @@ const FullImage = styled.img`
   height: auto;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 `;
-import { useEffect } from "react";
+
+import { useDeviceType } from "../hooks/useDevice";
 
 export const ProjectBanner = (props: ProjectBannerProps) => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize(); 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const deviceType = useDeviceType();
 
   return (
     <>
@@ -165,7 +156,7 @@ export const ProjectBanner = (props: ProjectBannerProps) => {
               src={props.$image}
               alt="Full Preview"
               onClick={() => {
-                if (!isMobile) {
+                if (deviceType === "desktop") {
                   setModalVisible(true);
                 }
               }}
@@ -174,7 +165,7 @@ export const ProjectBanner = (props: ProjectBannerProps) => {
         </ContentWrapper>
       </StyledContainer>
 
-      {!isMobile && (
+      {deviceType === "desktop" && (
         <StyledModal
           open={isModalVisible}
           footer={null}

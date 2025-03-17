@@ -61,7 +61,7 @@ export const RightColumn = styled.div`
 
 export const TextSection = styled.div`
   flex: 1;
-  padding: 20px;
+  padding: 10px;
   line-height: 2;
 
   z-index: 1;

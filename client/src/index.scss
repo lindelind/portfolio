@@ -10,9 +10,20 @@ body, html {
     z-index: 1;
   
     overflow-x: hidden;
-   
-    
-    
+}
+  
+.hero-text {
+  background-color: white;
+
+ h3 {
+  color: black;
+    font-family:
+     "Waiting for the Sunrise";
+     font-size: 1.8rem;
+     margin-top: 60px;
+
+ }
+
 }
 
 h1 {
@@ -20,8 +31,8 @@ h1 {
   // font-size: 30px;
 }
 .ball.bubble {
-  width: 50px;
-  height: 50px;
+  width: 90px;
+  height: 90px;
   animation: floating 3s ease-in-out infinite;
   
 
@@ -31,7 +42,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px; 
+  gap: 0px; 
   margin-top: 40px;
 
 
@@ -49,7 +60,7 @@ h1 {
   }
 
   .bubble-container {
-    gap: 5px;
+    gap: 0px;
    margin-top: 40px;
   }
 }
@@ -116,8 +127,8 @@ h1 {
 
 @media screen and (max-width: 768px) {
   .bubble-svg {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -151,3 +162,154 @@ h1 {
   }
 }
 
+//-----------------
+
+
+@keyframes rotatePaper {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes rotatePaperMore {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(190deg);
+  }
+  
+}
+
+
+.hidden {
+  transform: ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.paper {
+  // --paper-dark: #e5c93d;
+  // --paper-color: #ffed87;
+  --paper-dark: #c6c4c6;
+  --paper-color: #ffffff;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-width: 125px;
+  min-height: 200px;
+  background: linear-gradient(
+    135deg,
+    var(--paper-dark),
+    30%,
+    var(--paper-color)
+  );
+  box-shadow: 3px 3px 2px var(--paper-shadow);
+  transform-origin: top left;
+  // animation: rotatePaper 3s infinite ease-in-out;
+  animation: rotatePaper 3s infinite ease-in-out;
+}
+
+.paper p {
+  margin: auto;
+  color: black;
+  font-family: "Waiting for the Sunrise";
+  font-size: 1.8rem;
+}
+
+
+.pin {
+  --pin-color: #265fd0;
+  --pin-dark: #0e1362;
+  --pin-light: #8bb6e0;
+
+  position: absolute;
+  left: 20px;
+  width: 60px;
+  height: 50px;
+}
+
+.shadow {
+  position: absolute;
+  top: 18px;
+  left: -8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: radial-gradient(var(--paper-shadow), 20%, rgba(201, 191, 141, 0));
+}
+
+.metal {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  background: linear-gradient(to right, #808080, 40%, #eae8e8, 50%, #808080);
+  border-radius: 0 0 30% 30%;
+  transform: rotate(50deg);
+  transform-origin: bottom left;
+  top: 15px;
+  border-bottom: 1px solid #808080;
+}
+
+.bottom-circle {
+  position: absolute;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--pin-color);
+  background: radial-gradient(
+    circle at bottom right,
+    var(--pin-light),
+    25%,
+    var(--pin-dark),
+    90%,
+    var(--pin-color)
+  );
+}
+
+/* Barrel */
+.bottom-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 20px;
+  height: 30px;
+  transform: rotate(55deg);
+  transform-origin: 100% 100%;
+  border-radius: 0 0 40% 40%;
+  background: linear-gradient(
+    to right,
+    var(--pin-dark),
+    30%,
+    var(--pin-color),
+    90%,
+    var(--pin-light)
+  );
+}
+
+/* Top circle */
+.bottom-circle::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at right,
+    var(--pin-light),
+    30%,
+    var(--pin-color),
+    var(--pin-dark) 80%
+  );
+}
