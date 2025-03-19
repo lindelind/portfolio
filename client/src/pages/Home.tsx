@@ -24,8 +24,8 @@ export const FadeSection = styled.section`
   opacity: 0;
   transform: translateY(40px);
   transition:
-    opacity 0.5s ease-out,
-    transform 0.5s ease-out;
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
 
   &.visible {
     opacity: 1;
@@ -52,7 +52,7 @@ const AboutMe: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100 && paperRef.current) {
+      if (window.scrollY > 70 && paperRef.current) {
         paperRef.current.classList.add("hidden");
       }
     };
@@ -77,7 +77,7 @@ useEffect(() => {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.25}
   );
 
   fadeRefs.current.forEach((ref) => {
@@ -103,7 +103,7 @@ useEffect(() => {
         <TwoColumnLayout>
           <LeftColumn>
             <h1>{t("home.title")}</h1>
-            <StyledH2>Fullstackutvecklare</StyledH2>
+            <StyledH2>{t("home.subtitle")}</StyledH2>
             {deviceType === "desktop" && (
               <div className="paper" ref={paperRef}>
                 <div className="pin">
@@ -112,18 +112,15 @@ useEffect(() => {
                   <div className="bottom-circle"></div>
                 </div>
                 <p>
-                  Från tanke till verklighet – jag gör dina idéer levande, en
-                  kodrad och kaffekopp i taget.
+                  {t("home.postit")}
                 </p>
+                <div className="pin2">
+                  <div className="shadow2"></div>
+                  <div className="metal2"></div>
+                  <div className="bottom-circle2"></div>
+                </div>
               </div>
             )}
-
-            {/* <div className="hero-text">
-              <h3>
-                Från tanke till verklighet – jag gör dina idéer levande, en
-                kodrad och kaffekopp i taget.
-              </h3>
-            </div> */}
           </LeftColumn>
           <RightColumn>
             <Pictures>
@@ -148,6 +145,38 @@ useEffect(() => {
             </TextSection>
           </TwoColumnLayout>
         </FadeSection>
+        <section id="quote">
+          <div id="one" className="tilt-l">
+            If,
+          </div>
+          <div id="two" className="tilt-r">
+            at
+          </div>
+          <div id="three" className="tilt-r2x">
+            first,
+          </div>
+          <div id="four" className="tilt-l">
+            you
+          </div>
+          <div id="five" className="tilt-r">
+            do
+          </div>
+          <div id="six" className="tilt-l2x">
+            not
+          </div>
+          <div id="seven" className="tilt-r2x">
+            succeed,
+          </div>
+          <div id="eight" className="tilt-l2x">
+            call
+          </div>
+          <div id="nine" className="tilt-r">
+            it
+          </div>
+          <div id="ten" className="tilt-l">
+            version 1.0.
+          </div>
+        </section>
         <section id="techstack"></section>
         <br />
         <FadeSection ref={(el) => fadeRefs.current.push(el)}>
@@ -156,7 +185,6 @@ useEffect(() => {
               <h2>{t("techstack.heading")}</h2>
               <p>{t("techstack.description")}</p>
               <BubbleIcons />
-              {/* {deviceType != "desktop" && <BubbleIcons />} */}
             </TextSection>
           </TwoColumnLayout>
         </FadeSection>
@@ -188,7 +216,6 @@ useEffect(() => {
 
       <FadeSection ref={(el) => fadeRefs.current.push(el)}>
         <section id="contact">
-          <br />
           <br />
           <ContactForm />
         </section>

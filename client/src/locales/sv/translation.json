@@ -1,8 +1,9 @@
 {
   "home": {
-    "title": "Hej. Mitt namn är Alinde.",
-    "subtitle": "Jag är en Fullstack Developer",
-    "contact": "Kontakta mig"
+    "title": "Hej. Jag heter Alinde.",
+    "subtitle": "Fullstackutvecklare",
+    "contact": "Kontakta mig",
+    "postit": "Från tanke till verklighet – jag gör dina idéer levande, en kodrad och kaffekopp i taget."
   },
   "techstack": {
     "heading": "Tech Stack",
@@ -12,7 +13,7 @@
     "heading": "Vem är jag?",
     "heading2": "Erfarenhet och bakgrund",
     "paragraph1": "Jag är en fullstackutvecklare på väg ut i arbetslivet, med erfarenhet av både frontend och backendutveckling. Jag älskar att kombinera kreativitet med problemlösning för att bygga lösningar som både fungerar smidigt och ser bra ut. För mig går en tydlig kodstruktur och en användarvänlig upplevelse hand i hand – oavsett om det handlar om att säkerställa att appen är lätt att använda eller att göra koden lätt att navigera.",
-    "paragraph2": "Under min utbildning och praktik har jag arbetat med flera projekt där jag byggt funktionella lösningar med teknologier som React, React Native, TypeScript, Node.js, PHP, Firebase och SQL/NoSQL-databaser. Jag har även arbetat med API-integrationer och förbättrat användarflöden i mobilappar.",
+    "paragraph2": "Under min utbildning och praktik har jag arbetat med flera projekt där jag byggt funktionella lösningar med teknologier som React, TypeScript, Node.js, PHP, Firebase, SQL/NoSQL-databaser och API integrationer.",
     "paragraph3": "Min bakgrund inom kundservice har gett mig värdefulla soft skills, som förmågan att kommunicera effektivt, lyssna på och förstå användarbehov samt att samarbeta bra i team. Jag är bra på att förstå vad som krävs för att skapa en positiv användarupplevelse och kan snabbt anpassa mig efter nya krav och utmaningar.",
     "paragraph4": "Jag ser fram emot att ta med både mina tekniska färdigheter och mina erfarenheter från kundservice till ett utvecklarjobb, där jag kan bidra till att skapa både användarvänliga och tekniskt hållbara lösningar."
   },

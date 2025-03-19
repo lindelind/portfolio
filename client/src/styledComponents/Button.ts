@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PrimaryButton = styled.button`
-  background-color: rgb(231, 125, 49);
+  background: rgb(127, 61, 220);
   color: white;
 
   padding: 9px 19px;
@@ -18,13 +18,13 @@ export const PrimaryButton = styled.button`
   }
 
   &:hover {
-    background-color: rgb(202, 110, 45);
+    background-color:rgb(116, 41, 220);
   }
 `;
 
 export const SecondaryButton = styled.button`
   background-color: transparent;
-  color: rgb(217, 136, 38);
+  color: rgb(116, 41, 220);;
   padding: 9px 19px;
   border: 0.5px solid lightgrey;
   border-radius: 5px;
@@ -44,7 +44,7 @@ export const SecondaryButton = styled.button`
 
 
 export const CustomButton = styled.button`
-  background-color: rgb(231, 125, 49);
+  background-color: rgb(195, 49, 231);
   color: white;
       a {
     text-decoration: none;

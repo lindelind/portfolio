@@ -7,4 +7,15 @@ export const StyledFooter = styled.footer`
   // margin-top: 30px;
   text-align: center;
   padding: 10px;
+
+  a {
+    margin: 10px;
+    cursor: pointer;
+
+    img {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 `;

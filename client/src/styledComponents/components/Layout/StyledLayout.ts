@@ -11,6 +11,7 @@ export const PageContainer = styled.div`
 
   h1 {
     font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
   }
 `;
 
@@ -73,9 +74,12 @@ export const TextSection = styled.div`
   
   h2, h3{
 
-  color: rgb(177, 134, 231);
+  color: rgb(119, 40, 216);
   font-weight: 700;
   }
+
+  h2 {
+    font-size: 30px;}
 `;
 
 export const StyledH2 = styled.h2`
@@ -91,15 +95,16 @@ export const StyledH2 = styled.h2`
   margin: 20px 0;
   position: relative;
 
-  &::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: #6e8efb;
-    margin: 10px auto 0;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #6e8efb;
-  }
+  // &::after {
+  //   content: "";
+  //   display: block;
+  //   width: 190px;
+  //   height: 4px;
+  //   background:rgb(135, 79, 213);
+  //   margin: 20px auto 0;
+  //   margin-bottom: 20px;
+  //   border-radius: 10px;
+  //   box-shadow: 0 0 10pxrgb(77, 51, 190);
+  // }
 `;
 

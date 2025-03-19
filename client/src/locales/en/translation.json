@@ -1,8 +1,9 @@
 {
   "home": {
     "title": "Hi. My name is Alinde.",
-    "subtitle": "I'm a Fullstack Developer",
-    "contact": "Contact me"
+    "subtitle": "Fullstack Developer",
+    "contact": "Contact me",
+    "postit": "From idea to reality – I bring your visions to life, one line of code and one cup of coffee at a time."
   },
   "techstack": {
     "heading": "Tech Stack",
@@ -12,7 +13,7 @@
   "heading": "Who am I?",
   "heading2": "My experience and background",
   "paragraph1": "I’m a full-stack developer on my way into the workforce, with experience in both frontend and backend development. I love combining creativity with problem-solving to build solutions that work smoothly and look great. For me, clear code structure and a user-friendly experience go hand in hand – whether it’s ensuring the app is easy to use or making the code easy to navigate.",
-  "paragraph2": "During my education and internship, I’ve worked on several projects where I’ve built functional solutions using technologies like React, React Native, TypeScript, Node.js, PHP, Firebase, and SQL/NoSQL databases. I’ve also worked on API integrations and improved user flows in mobile apps.",
+  "paragraph2": "During my education and internship, I’ve worked on several projects where I’ve built functional solutions using technologies like React, TypeScript, Node.js, PHP, Firebase, SQL/NoSQL databases and API integrations.",
   "paragraph3": "My background in customer service has equipped me with valuable soft skills, like the ability to communicate effectively, listen to and understand user needs, and collaborate well in teams. I’m good at understanding what’s required to create a positive user experience and can quickly adapt to new requirements and challenges.",
   "paragraph4": "I’m excited to bring both my technical skills and customer service experience to a developer role, where I can contribute to building user-friendly and technically sustainable solutions."
 },

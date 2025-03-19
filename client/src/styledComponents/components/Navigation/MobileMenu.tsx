@@ -117,10 +117,6 @@ const StyledDrawer = styled(Drawer)`
     background: transparent !important;
     color: white !important;
 
-    &:hover {
-      color: rgb(39, 39, 41);
-      background: rgba(255, 255, 255, 0.05) !important;
-    }
   }
 
   .ant-menu-item::after {

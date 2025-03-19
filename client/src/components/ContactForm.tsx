@@ -24,9 +24,10 @@ const FormContainer = styled.div`
   box-shadow: 0px 0px 20px 0 rgba(140, 137, 137, 0.1);
 `;
 
-const Title = styled.h1`
-  font-size: 20px;
+const Title = styled.h2`
+  font-size: 27px;
   font-weight: 600;
+  font-family: "Waiting for the sunrise";
   color: white;
   margin-bottom: 20px;
 `;
@@ -76,7 +77,7 @@ const TextArea = styled.textarea`
 const SubmitButton = styled.button`
   width: 100%;
   padding: 14px;
-  background:rgb(86, 86, 88);
+  background:rgb(127, 61, 220);
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -90,7 +91,7 @@ const SubmitButton = styled.button`
     transform 0.2s;
 
   &:hover {
-    background:rgb(91, 92, 94);
+    background:rgb(193, 87, 220);
     transform: translateY(-2px);
   }
 

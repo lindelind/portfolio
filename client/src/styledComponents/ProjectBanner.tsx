@@ -17,7 +17,7 @@ const StyledContainer = styled.div`
   width: 90%;
   margin: 10px auto;
   position: relative;
-  background: linear-gradient(135deg,rgb(30, 30, 29), transparent);
+  background: linear-gradient(135deg, rgb(30, 30, 29), transparent);
   padding: 20px;
   overflow: visible;
 `;
@@ -29,6 +29,8 @@ export const ContentWrapper = styled.div`
   justify-content: space-between;
   height: 100%;
   margin: 0 auto;
+  
+  
 `;
 
 export const TitleWrapper = styled.div`
@@ -91,7 +93,6 @@ const PeepImage = styled.img`
     );
     pointer-events: none;
     transition: opacity 0.5s ease;
-    z-index: 11;
   }
 
   &:hover {
@@ -105,6 +106,7 @@ const PeepImage = styled.img`
 
     &::after {
       opacity: 0;
+      
     }
   }
 `;
